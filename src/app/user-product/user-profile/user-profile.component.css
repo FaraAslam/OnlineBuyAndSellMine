@@ -1,0 +1,38 @@
+.topImg{
+    position: absolute;
+width: 221px;
+height: 90px;
+left: 1174px;
+top: 20px;
+}
+.input-title{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+}
+.input-feild{
+   padding: 5px;
+    height: 40px;
+border-radius: 10px;
+    border: 1px solid silver;
+    width: 380px;
+}
+.btn{
+    background-color:#26A5B9 ;
+    color:white;
+}
+.toplogo{
+    position: absolute;
+    width: 200px;
+    height: 200x;
+    left: 75%;
+    top: 27%;
+    align-items: center;
+}
+.toplogo img{
+width: 200px;
+height: 200px;
+border-radius: 50%;
+margin-bottom: 10px;
+}

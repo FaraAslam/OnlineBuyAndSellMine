@@ -1,0 +1,74 @@
+<div class="body-container-login">
+    <br><br>
+    <div class="row">
+        <div class="col-md-9 col-lg-9"></div>
+        <div class="logo col-md-2 col-lg-2 mt-5">
+          <span ><img class="logo-top"  title="Socially Bloom" src="../../../../assets/Images/logo.png"></span>
+        </div>
+        
+        
+        <div class="row">
+            <br>
+            <div class="col-md-8 col-lg-8"></div>
+            <div class="col-md-2 col-lg-4"><h5 class="welcome ">Welcome </h5> </div>
+            </div>
+            <div class="row"> 
+            <div class="col-md-8 col-lg-8"></div>
+            <div class="col-md-4 col-lg-4"> 
+             
+              <div class="login-form">  
+                <div class="signup-title"> Sign up now </div>
+                <div class="errorValdation text-center" *ngIf="errorMessage!=''">{{errorMessage}}</div>  
+                <div class="main-login-section-inner">
+                  <div>
+                    <span style="color:red"></span>
+                  </div>
+                  
+                  <br>
+                  <br>
+                  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" novalidate>
+                    <div class="login-section-fields">
+                      <div class="row">
+                        <div class="login-section-fields-single col-lg-6 col-md-6">
+                            <label class="input-feild-title">First Name</label><br>
+                            <input class="input-feild" type="text" name="login-firstName" formControlName="FirstName" placeholder="First Name" >
+                            <span class="errorValdation" *ngIf="signupForm.controls.FirstName.touched && signupForm.controls.FirstName.errors?.required">Please enter first name</span>
+                          </div>
+                          <div class="login-section-fields-single col-lg-6 col-md-6">
+                            <label class="input-feild-title">Last Name</label><br>
+                            <input class="input-feild" type="text" name="login-lastName" formControlName="LastName" placeholder="Last Name" >
+                            <span class="errorValdation" *ngIf="signupForm.controls.LastName.touched && signupForm.controls.LastName.errors?.required">Please enter last name</span>
+                          </div>
+                      </div>
+                      <div class="login-section-fields-single">
+                        <label class="input-feild-title mt-3">E-mail</label><br>
+                        <input class="input-feild" type="text" name="login-username" formControlName="Email" placeholder="no****id@***.com" >
+                        <span class="errorValdation" *ngIf="signupForm.controls.Email.touched && signupForm.controls.Email.errors?.required">Please enter email</span>
+                      </div>
+                      <div class="login-section-fields-single">
+                        <label class="input-feild-title mt-3">Password</label><br>
+                        <input class="input-feild" type="password" name="Password" formControlName="Password" placeholder="Password">
+                        <span class="errorValdation"></span>
+                      </div>
+                      <div class="login-section-fields-single">
+                        <label class="input-feild-title mt-3">Confirm Password</label><br>
+                        <input class="input-feild" type="password" name="ConfirmPassword" formControlName="ConfirmPassword" placeholder="Confirm Password">
+                        <span class="errorValdation" *ngIf="signupForm.controls.ConfirmPassword.touched && signupForm.hasError('mismatch')">Password and Confirm Password mismatch.</span>
+                        <span class="errorValdation"></span>
+                      </div>
+                      <br><br>
+                      <div class="d-flex justify-content-center">
+                          <input type="submit" class="d-pointer mt-5 save-btn" value="Sign up" name="login-form-submit">
+                         
+                      </div>
+                    </div>
+                    
+                  </form>
+                </div>
+                
+              </div>
+            </div>
+            <div class="col-md-5 login-side-image"></div> 
+        </div>
+    </div>
+</div>

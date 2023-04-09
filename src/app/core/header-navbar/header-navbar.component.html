@@ -1,0 +1,90 @@
+<nav class="navbar navbar-expand-lg navbar-head">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button class="navbar-toggler" style="background-color: white" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse">
+        <!-- Navbar brand -->
+        <span ><img class="logo-top"  [routerLink]="['/']" title="Online Sell and Buy" src="assets/Images/logo-w.png"></span> 
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <div class="input-group">
+              <input class="form-control py-2" style="border-radius: 0px" type="search" placeholder="What are you looking for?" (keyup)="onKeyUp($event)" [(ngModel)]="searchKey" />
+              <span class="input-group-append">
+                <button class="btn search-btn-navbar " type="button" [routerLink]="['/shop/search', searchKey]">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+        <!-- Icon -->
+        
+        <a class="navbar-link-text1" [routerLinkActive]="['ActiveRoute']">
+          <img src="./assets/Images/shop/cart-icon.png" [routerLink]="['/shop/basket']" />
+        </a>
+        <img  class="rounded-circle" height="40" width="40" src="./assets/Images/profileImage.png" routerLink="userProduct"/>
+        <span class="mt-1 to-selll-btn">To Sell</span>
+       
+      </div>
+  </nav>
+  <!-- <span class="mobile-view">
+    <input type="checkbox" id="ham-menu" />
+    <label for="ham-menu">
+      <div class="hide-des">
+        <span class="material-icons"> density_medium </span>
+      </div>
+    </label>
+    <div class="full-page-green"></div>
+    <div class="ham-menu">
+      <ul class="centre-text">
+        <li class="mobile-Nav-heading" [routerLinkActive]="['ActiveRouteMobile']" [routerLink]="['/shop/home']">Home</li>
+        <li>
+          <div class="input-group" style="padding: 20px">
+            <input class="form-control py-2" style="border-radius: 0px; width: 80px" type="search" (keyup)="onKeyUp($event)" [(ngModel)]="searchKey" />
+            <span class="input-group-append">
+              <button class="btn search-btn-navbar" style="width: 30px" type="button" [routerLink]="['/shop/search', searchKey]">
+                <i class="fa fa-search"></i>
+              </button>
+            </span>
+          </div>
+        </li>
+        <li>
+          <button mat-button [matMenuTriggerFor]="menu" class="dropdown-toggle" id="navbarDropdownMenuAvatar1" role="button" data-mdb-toggle="dropdown" aria-expanded="false">Categories</button>
+          <mat-menu #menu="matMenu" xPosition="before">
+            <span *ngFor="let category of customerCategories">
+              <button mat-menu-item class="dropdown-text" [routerLink]="['/shop/category/product/', category.categoryId]" (mouseover)="getSubcategory(category.categoryId)" [matMenuTriggerFor]="invertebrates">
+                {{ category.name }}
+              </button>
+            </span>
+          </mat-menu>
+          <mat-menu #invertebrates="matMenu">
+            <button mat-menu-item style="text-align: center" *ngIf="SubCategoryLoading">
+              <i class="fa fa-spinner fa-spin" style="font-size: 22px"></i>
+            </button>
+            <button mat-menu-item  [routerLink]="[]">
+              <span *ngIf="SubCategoryLoading == false"></span>
+            </button>
+          </mat-menu>
+        </li>
+        <li class="mobile-view-text" [routerLinkActive]="['ActiveRouteMobile']" [routerLink]="['/shop/savedList']">Saved Lists</li>
+        <li class="mobile-view-text" [routerLinkActive]="['ActiveRouteMobile']" [routerLink]="['/shop/favourities']">Favourites</li>
+        <li class="mobile-view-text" [routerLinkActive]="['ActiveRouteMobile']" [routerLink]="['/shop/myOrders']">My Orders</li>
+        <li class="mobile-view-text" [routerLinkActive]="['ActiveRouteMobile']" [routerLink]="['/shop/basket']">Basket</li>
+        <li class="mobile-view-text" (click)="Logout()">Log out</li>
+      </ul>
+    </div>
+  </span>-->
+<div class="menu-navebarr">
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Pet</a>
+        </li>
+      </ul>
+</div>

@@ -1,0 +1,87 @@
+.body-container-login{
+    background: url(../../../../assets/Images/background.png);
+    height:100vh; 
+    width: 98%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.logo{
+    float:right;
+}
+.main-login-section-inner {
+    max-width: 503px;
+    min-height: 480px;
+    margin: auto;
+    padding: 0px 40px 50px 40px;
+    background: #FFFFFF;
+    position: sticky;
+    z-index: 100;
+    
+}
+.login-form{
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+.welcome{
+    margin-top: 50px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+}
+.signup-title{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    color: #FFFFFF;
+    background-color: #26A5B9 ;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-left-radius: 8px;
+    padding: 10px;
+    border-bottom: 1px solid #26A5B9;
+    /* clip-path: polygon(0% 0%, 46% 0, 54% 96%, 100% 100%, 0% 100%); */
+    clip-path: polygon(47% 0, 58% 92%, 100% 92%, 100% 100%, 75% 100%, 30% 100%, 0 100%, 0 0);
+
+
+}
+.input-feild-title{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    color: #26A5B9;
+}
+.input-feild{
+    width: 97%;
+    height: 30px;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    border-bottom: 1px solid #26A5B9;
+}
+.signUp-link{
+   
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    color: #000000;
+    border:none
+}
+
+@media only screen and (max-width: 768px) {
+    .body-container-login{
+        background: none;
+    }
+    .logo{
+       
+        margin-left: 20%;
+    }
+}
+

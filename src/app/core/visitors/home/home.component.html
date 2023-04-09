@@ -1,0 +1,120 @@
+<div class="container  mt-navbar">
+    <img class="slider " height="275" width="1300" title="Online Sell and Buy" src="assets/Images/slider.png"><br><br>
+    <h6 class="products-heading">Recent Products</h6>
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-12"  *ngFor="let recentProduct of RecentProducts">
+            <div class="card" >
+                <img class="radius-top " height="230" width="304" [routerLink]="['/product-details']" title="" src={{recentProduct.imageLink}}>
+                <div class="container">
+                    <p class="product-title mt-2">{{recentProduct.name}}</p>
+                    <div class="row">
+                        <div class="col-lg-9 col-md-10 col-sm-12">
+                            <p class="price">Rs: {{recentProduct.price}}</p>
+                        </div>
+                        <div class="col-lg-3 col-md-2 col-sm-12">
+                            <i class="fa fa-heart wishlist-icon"></i>
+                            <i class="fa fa-eye eye-icon"></i>
+                            
+         
+    
+    <!-- <div class="card"> -->
+        <!-- <span class="fr view-more d-pointer">View More</span> -->
+        <h6 class="products-heading">Recent Products</h6>
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-12 products-card">
+                <div class="products-card">
+                    <div class="card ">
+                        <img class="radius-top " height="230" width="288" [routerLink]="['/product-details']" title=""
+                            src="assets/Images/RecentProducts.png">
+                        <div class="container" style="padding-left:10px ;">
+                            <p class="product-title second-heading mt-2">Makeup Pouch With Plastic Chain</p>
+                            <div class="row">
+                                <div class="col-lg-9 col-md-10 col-sm-12">
+                                    <p class="price">Rs: 1,200</p>
+                                </div>
+                                <div class="col-lg-3 col-md-2 col-sm-12">
+                                    <i class="fa fa-heart wishlist-icon"></i>
+                                    <i class="fa fa-eye eye-icon"></i>
+                                </div>
+                            </div>
+                            <p class="product-date"> 30 sec ago </p>
+                        </div>
+    
+                    </div>
+                    <p class="product-date"> {{recentProduct.addedAgo}} </p>
+                </div>
+            </div>
+        </div>
+    <!-- </div> -->
+    <br>
+    <!-- <span class="fr view-more d-pointer">View More</span> -->
+    <h6 class="products-heading b-n-product">Brand New Products</h6>
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-12" *ngFor="let newProduct of BrandNewProducts">
+            <div class="card" >
+                <img class="radius-top " height="230" width="304" title="Online Sell and Buy" src={{newProduct.imageLink}}>
+                <div class="container">
+                    <p class="product-title mt-2">{{newProduct.name}}</p>
+                    <div class="row">
+                        <div class="col-lg-9 col-md-10 col-sm-12">
+                            <p class="price">Rs: {{newProduct.price}}</p>
+                        </div>
+                        <div class="col-lg-3 col-md-2 col-sm-12">
+                            <i class="fa fa-heart wishlist-icon"></i>
+                            <i class="fa fa-eye eye-icon"></i> 
+                        </div>
+                    </div>
+                    <p class="product-date">{{newProduct.addedAgo}} </p>
+                </div>
+            </div>
+        </div>
+    </div><br>
+    <!-- <span class="fr view-more d-pointer">View More</span> -->
+    <h6 class="products-heading">Used Products</h6>
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-12" *ngFor="let usedProduct of UsedProducts">
+            <div class="card" >
+                <img class="radius-top " height="230" width="304" title="Online Sell and Buy" src={{usedProduct.imageLink}}>
+                <div class="container">
+                    <p class="product-title mt-2">{{usedProduct.name}}</p>
+                    <div class="row">
+                        <div class="col-lg-9 col-md-10 col-sm-12">
+                            <p class="price">Rs: {{usedProduct.price}}</p>
+                        </div>
+                        <div class="col-lg-3 col-md-2 col-sm-12">
+                            <i class="fa fa-heart wishlist-icon"></i>
+                            <i class="fa fa-eye eye-icon"></i>
+                            
+                            
+                        </div>
+                    </div>
+                    <p class="product-date"> {{usedProduct.addedAgo}} </p>
+                </div>
+            </div>
+        </div>
+    </div><br>
+    <h6 class="products-heading">For You</h6>
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-12">
+            <div class="card">
+                <img class="radius-top " height="230" width="304" title="Online Sell and Buy" src="assets/Images/RecentProducts.png">
+                <div class="container">
+                    <p class="product-title mt-2">Makeup Pouch With Plastic Chain</p>
+                    <div class="row">
+                        <div class="col-lg-9 col-md-10 col-sm-12">
+                            <p class="price">Rs: 1,200</p>
+                        </div>
+                        <div class="col-lg-3 col-md-2 col-sm-12">
+                            <i class="fa fa-heart wishlist-icon"></i>
+                            <i class="fa fa-eye eye-icon"></i>
+                            
+                            
+                        </div>
+                    </div>
+                    <p class="product-date"> 30 sec ago </p>
+                </div>
+            </div>
+        </div>
+    </div><br>
+</div>
+

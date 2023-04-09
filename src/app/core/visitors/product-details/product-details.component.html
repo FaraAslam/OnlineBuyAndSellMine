@@ -1,0 +1,153 @@
+<div class="container  mt-navbar">
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card container">
+            <div class="row mt-2">
+                <div class="col-lg-6">
+                    <img class=" " height="347" width="430" title="" src="assets/Images/RecentProducts.png">
+                </div>
+                <div class="col-lg-6">
+                    <div class="container">
+                        <p class="product-title mt-2">{{Product.name}}</p>
+                       <div class="row">
+                        <div class="col-12">
+                            <span class="price-title">Price</span>
+                            <span class="price">Rs: {{Product.price}}</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <span class="price-title">Condition</span>
+                                 <span class="price">{{Product.condition}}</span>
+                            </div>
+                           </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <img class="mt-1 " height="82" width="100" title="" src="assets/Images/RecentProducts.png">
+                </div>
+            </div>
+            <br>
+        </div><br>
+        <div class="card min-ht">
+            <h6 class="products-heading description-title">Description</h6>
+            <p class="description">
+                {{Product.description}}
+            </p>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card min-ht">
+            <h6 class="products-heading seller-description-title">Seller Description</h6>
+            <div class="container">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-3 col-6">
+                            <img class="profile-img " height="50" width="50" title="" src="assets/Images/RecentProducts.png">
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-6 mt-2">
+                            <p class="" id="seller-title">{{Product.sellerName}}</p>
+                        </div>
+                    </div><hr style="color:#26A5B9 ;">
+                    <span class="sc-number">Seller Contact No</span>
+                    <span class="fr" id="seller-title">{{Product.sellerPhoneNumber}}</span><br>
+                    <span class="sc-number">Partnership Since</span>
+                    <span class="fr" id="seller-title">{{Product.sellerPartnership}}</span><br>
+                    <span class="sc-number">Address</span>
+                    <span class="fr" id="seller-title">{{Product.sellerAddress}}</span><br><br><br>
+                    <h6 class="fr" id="vs-profile">View Seller Profile</h6>
+            </div>
+            
+        </div><br><br>
+        <img class="slider " height="347" width="430" title="" src="assets/Images/adds.png">
+    </div>
+</div><br>
+<div class="card">
+    <h6 class="products-heading">Related Products</h6>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-12"  *ngFor="let relatedProduct of RelatedProducts">
+                <div class="card">
+                    <img class="slider " height="230" width="298" title="" src="assets/Images/RecentProducts.png">
+                    <div class="container">
+                        <p class="product-title mt-2">{{relatedProduct.name}}</p>
+                        <div class="row">
+                            <div class="col-lg-9 col-md-10 col-sm-12">
+                                <p class="price">Rs: {{relatedProduct.price}}</p>
+                            </div>
+                            <div class="col-lg-3 col-md-2 col-sm-12">
+                                <i class="fa fa-heart wishlist-icon"></i>
+                                <i class="fa fa-eye eye-icon"></i>
+                                
+                                
+                            </div>
+                        </div>
+                        <p class="product-date">{{relatedProduct.addedAgo}} </p>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-lg-3 col-md-4 col-sm-12">
+                <div class="card">
+                    <img class="slider " height="230" width="298" title="" src="assets/Images/RecentProducts.png">
+                    <div class="container">
+                        <p class="product-title mt-2">Makeup Pouch With Plastic Chain</p>
+                        <div class="row">
+                            <div class="col-lg-9 col-md-10 col-sm-12">
+                                <p class="price">Rs: 1,200</p>
+                            </div>
+                            <div class="col-lg-3 col-md-2 col-sm-12">
+                                <i class="fa fa-heart wishlist-icon"></i>
+                                <i class="fa fa-eye eye-icon"></i>
+                                
+                                
+                            </div>
+                        </div>
+                        <p class="product-date"> 30 sec ago </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-12">
+                <div class="card">
+                    <img class="slider " height="230" width="298" title="" src="assets/Images/RecentProducts.png">
+                    <div class="container">
+                        <p class="product-title mt-2">Makeup Pouch With Plastic Chain</p>
+                        <div class="row">
+                            <div class="col-lg-9 col-md-10 col-sm-12">
+                                <p class="price">Rs: 1,200</p>
+                            </div>
+                            <div class="col-lg-3 col-md-2 col-sm-12">
+                                <i class="fa fa-heart wishlist-icon"></i>
+                                <i class="fa fa-eye eye-icon"></i>
+                                
+                                
+                            </div>
+                        </div>
+                        <p class="product-date"> 30 sec ago </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-12">
+                <div class="card">
+                    <img class="slider " height="230" width="298" title="" src="assets/Images/RecentProducts.png">
+                    <div class="container">
+                        <p class="product-title mt-2">Makeup Pouch With Plastic Chain</p>
+                        <div class="row">
+                            <div class="col-lg-9 col-md-10 col-sm-12">
+                                <p class="price">Rs: 1,200</p>
+                            </div>
+                            <div class="col-lg-3 col-md-2 col-sm-12">
+                                <i class="fa fa-heart wishlist-icon"></i>
+                                <i class="fa fa-eye eye-icon"></i>
+                                
+                                
+                            </div>
+                        </div>
+                        <p class="product-date"> 30 sec ago </p>
+                    </div>
+                </div>
+            </div> -->
+        </div><br>
+    </div>
+</div><br><br>
+</div>

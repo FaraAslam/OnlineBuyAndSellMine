@@ -1,0 +1,158 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+.body{
+    font-family: 'Roboto', sans-serif;
+}
+/* Gegeral */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+table .mat-mdc-header-cell {
+    background-color: #B5EFF0 !important;
+    color:  #26A5B9;
+}
+.fr{
+  float: right;
+}
+.d-pointer {cursor: pointer;}
+.first-heading{font-style: normal;
+  font-weight: 600 !important;
+  font-size: 24px !important;
+line-height: 28px !important;
+}
+.second-heading{
+  font-style: normal !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  line-height: 19px !important;
+}
+.third-heading{
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 19px !important;
+}
+a:hover,a:active,a:link {
+  outline: 0 !important;
+  text-decoration: none !important;
+}
+.radius-top{
+  border-top-left-radius:3px ;
+  border-top-right-radius:3px ;
+}
+/* page title */
+.header1{
+    font-style: normal !important;
+    font-weight: 600 !important;
+    font-size: 24px !important;
+    line-height: 28px !important;
+    text-transform: capitalize;
+    color: #000000;
+}
+.header2{
+    font-style: normal !important;
+    font-weight: 500 !important;
+    font-size: 20px !important;
+    line-height: 23px !important;
+    text-transform: capitalize;
+    color: #000000;
+    float: right;
+    margin-top: 34px !important;
+}
+.owner-img{
+    float: right;
+    border-radius: 50px;
+    margin-right: 15px;
+    border: 2px solid #00B0B7;
+    margin-top: 25px;
+    margin-right: 50px;
+}
+
+/* Tables Admin Side */
+.mat-elevation-z8 tr{
+    border-width: 1px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    border-radius: 10px !important;
+}
+.mat-elevation-z8 .bar {
+    border-width: 1px;
+    background: #ffffff !important;
+    border-radius: 10px;
+    border-right: #000;
+  }
+th.mat-cell,
+td.mat-cell {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-size: 12px;
+  line-height: 13px;
+  font-weight: normal;
+  color: #000000;
+  text-align: center;
+  justify-content: center;
+}
+
+td.mat-cell {
+  background-color: transparent;
+}
+/* Images */
+.coverfit-imgs{
+    object-fit: cover !important;
+    cursor: pointer;
+  }
+/* button */
+  .save-btn{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFF;
+    background: #26A5B9;
+    border-radius: 5px;
+    border: none;
+    padding: 7px 20px;
+    }
+/* product card */
+.products-heading{
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 24px !important;
+  line-height: 28px !important;
+  color: #FFFFFF;
+  background-color: #26A5B9 ;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-top-left-radius: 8px;
+  padding: 10px;
+  border-bottom: 1px solid #26A5B9;
+  clip-path: polygon(15% 0, 18% 92%, 100% 92%, 100% 100%, 75% 100%, 30% 100%, 0 100%, 0 0);
+}
+.product-title{
+      color: #000000;
+  }
+  .price{
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 28px;
+      color: #000000;
+  }
+  .product-date{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.25);
+  }
+  .wishlist-icon{
+    float: right;
+    margin-top: 6px;
+  }
+  .eye-icon{
+    float: right;
+    margin: 5px 10px 0px 0px;
+  }
+  .mt-navbar{
+    margin-top: 35px;
+  }
+  

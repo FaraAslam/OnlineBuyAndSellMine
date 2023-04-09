@@ -1,0 +1,116 @@
+.listLeft {
+    right: 0;
+    left: auto;
+  }
+  .item-sidebar{
+    background-color: #26A5B9;
+    /* border-left: 5px solid #000000; */
+    width: 99%;
+    margin: 0px 00px 0px 1px; 
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px; 
+    color: #FFFFFF;
+    height: 50px;
+    }
+    .item-sidebar:hover,
+    .boxclass {  
+      background:#FFFFFF;
+      border-right: 5px solid #26A5B9;
+      border-left: 5px solid #26A5B9;
+      box-sizing: border-box;
+      width: 99%;
+      font-weight: bold;
+      margin: 0px 0px 0px 1px;
+      font-size: 16px;
+      line-height: 32px; 
+      color: #26A5B9;
+      background: #ffffff;
+      height: 50px;
+      left: 0px;
+    }
+  
+  .bg-sidebar{
+  background-color: #26A5B9;
+  border: 0px;
+  margin-top: 5px; 
+  width: 287px;
+  }
+  .logo-top{  
+    margin:35px 15px 30px 22px; 
+  }
+  .menu-wout-icon{
+    margin-left: 20px;
+  }
+  .title-m-l{
+  margin-left: 15px;
+  }
+  body {
+    overflow-x: hidden;
+  }
+  
+  #sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+  }
+  #logout-btn{
+    border: none;
+  }
+  #sidebar-wrapper .list-group {
+    width: 18rem;
+  }
+  
+  #page-content-wrapper {
+    min-width: 100vw;
+  }
+  
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+  }
+  
+  @media (min-width: 768px) {
+    #sidebar-wrapper {
+      margin-left: 0;
+    }
+  
+    #page-content-wrapper {
+      min-width: 0;
+      width: 100%;
+    }
+    .show
+    {
+      margin-left: 0!important;
+    }
+    .hide
+    {
+      margin-left: -15rem!important;
+    }
+  }
+  @media (max-width: 767px) {
+    .show
+    {
+      margin-left: -15rem!important;
+    }
+    .hide
+    {
+      margin-left: -0!important;
+    }
+    .show-menu{
+        display: block;
+    }
+    
+  }
+  
+  @media (min-width: 767px) and (max-width: 1767px) {
+    .show-menu {
+        display: none;
+    }
+  }
+  
+  

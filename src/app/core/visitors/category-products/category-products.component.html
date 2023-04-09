@@ -1,0 +1,42 @@
+<div class="container  mt-navbar">
+    <span class="d-flex" style="float: right;">
+        <form class="search">
+            <div class="search__wrapper">
+              <input type="text" name="" placeholder="Search for..." class="search__field">
+              <button type="submit" class="fa fa-search search__icon"></button>
+            </div>
+      </form>
+        <select class="form-select option" (change)="valueChange($event)" >
+
+            <option value="All">All</option>
+            <option value="brandNew">Brand New</option>
+            <option value="used">Used</option>
+            <!-- <option [value]="stockItemTemplate.id" *ngFor="let stockItemTemplate of stockItemsTemplate">
+                {{ stockItemTemplate.type }}
+            </option> -->
+        </select>
+    </span>
+    <h6 class="products-heading">Makeup</h6>
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-12" *ngFor="let product of CategoryProducts">
+            <div class="card">
+                <img class="slider " height="230" width="304" title="Online Sell and Buy" src={{product.imageLink}}>
+                <div class="container">
+                    <p class="product-title mt-2">{{product.name}}</p>
+                    <div class="row">
+                        <div class="col-lg-9 col-md-10 col-sm-12">
+                            <p class="price">Rs: {{product.price}}</p>
+                        </div>
+                        <div class="col-lg-3 col-md-2 col-sm-12">
+                            <i class="fa fa-heart wishlist-icon"></i>
+                            <i class="fa fa-eye eye-icon"></i>
+                            
+                            
+                        </div>
+                    </div>
+                    <p class="product-date"> {{product.addedAgo}} </p>
+                </div>
+            </div>
+        </div>
+    </div><br>
+</div>

@@ -1,0 +1,50 @@
+h1 {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 28px;
+  text-transform: capitalize;
+  padding-top: 40px;
+  color: #000000;
+}
+
+.container {
+  width: 97%;
+}
+
+button {
+
+  background-color: #26A5B9;
+  color: white;
+  border: none;
+}
+
+th {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  /* identical to box height */
+  color: #000000;
+  padding-top: adjust;
+  text-align: center;
+}
+
+td {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  /* identical to box height */
+  color: #000000;
+}
+
+table {
+  border: 1px solid #26A5B9;
+
+}
+
+span {
+  float: right;
+}

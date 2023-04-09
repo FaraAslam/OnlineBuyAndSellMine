@@ -1,0 +1,60 @@
+<div class="body-container-login">
+    <br><br>
+    <div class="row">
+        <div class="col-md-9 col-lg-9"></div>
+        <div class="logo col-md-2 col-lg-2 mt-5">
+          <span ><img class="logo-top"  title="Socially Bloom" src="../../../../assets/Images/logo.png"></span>
+        </div>
+        
+        
+        <div class="row">
+            <br>
+            <div class="col-md-8 col-lg-8"></div>
+            <div class="col-md-2 col-lg-4"><h5 class="welcome ">Welcome back!</h5> </div>
+            </div>
+            <div class="row"> 
+            <div class="col-md-8 col-lg-8"></div>
+            <div class="col-md-4 col-lg-4"> 
+             
+              <div class="login-form">  
+                <div class="signup-title"> Sign in now </div>
+                <div class="errorValdation text-center" *ngIf="errorMessage!=''">{{errorMessage}}</div>  
+                <div class="main-login-section-inner">
+                  <div>
+                    <span style="color:red"></span>
+                  </div>
+                  
+                  <br>
+                  <br>
+                  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+                    <div class="login-section-fields">
+                      <div class="login-section-fields-single">
+                        <label class="input-feild-title">E-mail</label><br>
+                        <input class="input-feild" type="text" name="login-username" formControlName="Email" placeholder="no****id@***.com" >
+                        <!-- <span class="errorValdation" *ngIf="loginForm.controls.Email.touched && loginForm.controls.Email.errors?.required">Please enter email</span> -->
+                       
+                      </div>
+                      <div class="login-section-fields-single">
+                        <label class="input-feild-title mt-5">Password</label><br>
+                        <input class="input-feild" type="password" name="Password" formControlName="Password" placeholder="Password">
+                        <span class="errorValdation"></span>
+                      </div>
+                      <br><br>
+                      <div class="d-flex justify-content-center">
+                          <input type="submit" class="d-pointer mt-5 save-btn" value="Sign in" name="login-form-submit">
+                         
+                      </div>
+                      <div class="d-flex justify-content-center">
+                       <span class="signUp-link mt-3 " >Create Account? <span [routerLink]="['/signup']" class="d-pointer" style="color:#2aaec4">Sign Up</span></span>
+                      </div>
+                    </div>
+                    
+                  </form>
+                </div>
+                
+              </div>
+            </div>
+            <div class="col-md-5 login-side-image"></div> 
+        </div>
+    </div>
+</div>

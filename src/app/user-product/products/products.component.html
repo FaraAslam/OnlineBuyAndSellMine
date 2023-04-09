@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-2">
+        <app-user-product></app-user-product>
+    
+</div>
+<div class="col-9">
+<div class="d-flex">
+    <div>
+    <h2 class="mt-5 mx-5">Products</h2>
+<div class="input-group mx-5">
+    <span class="input-group-append d-flex">
+    <input class="form-control py-2 input"  type="search" placeholder="Search products" (keyup)="onKeyUp($event)" [(ngModel)]="searchKey" />
+    
+      <button class="btn search-btn " type="button" [routerLink]="['/shop/search']">
+        <i class="fa fa-search"></i>
+      </button>
+    </span>
+  </div>
+</div>
+<div class="topImg"><img  title="Online Sell and Buy" src="./assets/Images/logo.png"></div>
+</div><div class="d-flex" >
+    <div class="row">
+<div class="mx-5 mb-2 mt-5 col-2" *ngFor="let o of [1,1,1,1,1,1,1,1,1,1]">
+    
+        
+            <div class="card ">
+                <div >
+                    <img src="./assets/Images/slider.png" alt=""  width="100%">
+                    <div class="mt-3 mx-2">
+                        <span class="title d-block">Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, </span>
+                       
+                    </div>
+                    <div class="d-flex mx-2">
+                        <h1 class="price">Rs :</h1>
+                        <span class="price">600.0M</span>
+                    </div>
+                    <div class="d-flex mx-2 ">
+                        <p class="p">5 mint ago</p>
+                        <p class="p mx-2">new</p>
+                        <i [routerLink]="['/editproduct']" class="fa fa-pencil mx-2 icon" ></i>
+                        <i class="fa fa-trash mx-2 icon"></i>
+                    </div>
+                    
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div></div>

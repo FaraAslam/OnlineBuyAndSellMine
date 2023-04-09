@@ -1,0 +1,29 @@
+h1{
+    position: absolute;
+    left: 320px;
+    top: 30px;
+    font-family: 'Roboto'; 
+    font-weight: 600; 
+}
+h3 {
+    position: absolute;
+    left: 1330px;
+    top: 38px;
+
+    font-family: 'Roboto';
+
+    font-weight: 500;
+    color: #000000;
+} 
+img {
+    top: 3px; 
+ }
+ table {
+    margin-top: 60px;
+    width: 50%;
+   margin-left: 35px;
+ 
+} 
+.image{
+    border-radius: 10px;
+}
