@@ -24,7 +24,10 @@ import { MenuNavbarComponent } from './core/menu-navbar/menu-navbar.component';
 import { UserProductComponent } from './user-product/user-product.component';
 import { ProductsComponent } from './user-product/products/products.component';
 import { UserProfileComponent } from './user-product/user-profile/user-profile.component';
-import { EditProductComponent } from './user-product/edit-product/edit-product.component'
+import { EditProductComponent } from './user-product/edit-product/edit-product.component';
+import { SubCategoriesComponent } from './core/dashboard/sub-categories/sub-categories.component';
+
+
 
 
 
@@ -43,6 +46,8 @@ import { EditProductComponent } from './user-product/edit-product/edit-product.c
     ProductsComponent,
     UserProfileComponent,
     EditProductComponent,
+    SubCategoriesComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -56,6 +61,7 @@ import { EditProductComponent } from './user-product/edit-product/edit-product.c
     HttpClientModule,
     FontAwesomeModule,
     MatIconModule, 
+  
   ],
   providers: [AdminGuard, UserService],
   bootstrap: [AppComponent],

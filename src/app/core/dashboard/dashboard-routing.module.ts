@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CategoriesComponent } from './categories/categories.component';
 import { DashboardChartComponent } from './dashboard-chart/dashboard-chart.component';
@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard.component';
 import { ProductsComponent } from './products/products.component';
 import { VisitorListComponent } from './visitor-list/visitor-list.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SubCategoriesComponent } from './sub-categories/sub-categories.component';
 
 const routes: Routes = [
   {
@@ -38,7 +39,11 @@ const routes: Routes = [
         path: 'profile',
         component: ProfileComponent,
       },
-      
+      {
+        path: 'sub-categories/:categoryId',
+        component: SubCategoriesComponent,
+      },
+    
     ],
   },
 ];

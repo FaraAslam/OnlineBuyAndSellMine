@@ -6,11 +6,11 @@ h1 {
   line-height: 28px;
   text-transform: capitalize;
   padding-top: 40px;
-  color: #000000;
+  color:#010a0b;
 }
 
 .container {
-  width: 97%;
+  width: 95%;
 }
 
 button {
@@ -26,7 +26,7 @@ th {
   font-size: 24px;
   line-height: 28px;
   /* identical to box height */
-  color: #000000;
+  color: #26A5B9;
   padding-top: adjust;
   text-align: center;
 }

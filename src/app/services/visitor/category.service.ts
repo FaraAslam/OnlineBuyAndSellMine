@@ -11,12 +11,18 @@ export class CategoryService {
 
      constructor(private router: Router, private repositoryService: RepositoryService) { }
 
-
-     GetCategoryProducts(categoryId : any, data: object) {
+    //api/Category/get-categories
+     GetCategoryProducts(categoryId : any, data:object) {
           debugger
-          return this.repositoryService.post('Product/get-category-Products-by-search-filter/'+categoryId, data, false)
+          return this.repositoryService.get('Category/get-categories',  true)
                .pipe(map((response: any) => {
                     return response;
                }));
+     }
+     GetCategories() {
+          return this.repositoryService.get('Category/get-categories',true)
+               .pipe(map((response: any) => {
+                    return response;
+          }));
      }
 }

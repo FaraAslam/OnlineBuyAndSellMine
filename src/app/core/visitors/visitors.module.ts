@@ -26,10 +26,14 @@ import {MatRadioModule} from '@angular/material/radio';
     MatIconModule,
     AngularEditorModule,
     MatRadioModule
+  ],
+  exports: [
+    AddProductComponent,
+    CategoryProductsComponent
   ]
 })
 export class VisitorsModule {
   constructor(){
-    console.log("visitors modul load")
+    console.log("visitors module load")
   }
  }

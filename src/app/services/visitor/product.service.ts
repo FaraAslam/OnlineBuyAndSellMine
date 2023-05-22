@@ -8,22 +8,17 @@ import { RepositoryService } from '../repository/repository.service';
      providedIn: 'root'
 })
 export class ProductService {
-
-     constructor(private router: Router, private repositoryService: RepositoryService) { }
-
-
-     GetProductDetials(productId : any) {
-          return this.repositoryService.get('Product/get-product/'+productId,false)
-               .pipe(map((response: any) => {
-                    return response;
-               }));
-     }
-
-     GetProductRelatedItems(categoryId : any) {
-          return this.repositoryService.get('Product/get-Product-related-items/'+categoryId,false)
-               .pipe(map((response: any) => {
-                    return response;
-               }));
-     }
     
+     constructor(private router: Router, private repositoryService: RepositoryService) {}
+     isAdminRights():boolean{
+          return true;
+        } 
+ //api/Product/get-all-Products 
+     GetProductDetials(productId : any) {
+          return this.repositoryService.get('Product/get-all-Products',true)
+               .pipe(map((response: any) => {
+                    return response;
+               }));
+     }
+      
 }

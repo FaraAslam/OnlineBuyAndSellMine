@@ -3,7 +3,7 @@ export interface Category{
     name:string,
   }
 
-  export interface CategorySearchfilterProduct{
+   export interface CategorySearchfilterProduct{
     searchKey:string,
     isOld:boolean| null
   }
