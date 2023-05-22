@@ -40,7 +40,7 @@ const routes: Routes = [
         component: ProfileComponent,
       },
       {
-        path: 'sub-categories/:categoryId',
+        path: 'categories/sub-categories/:categoryId',
         component: SubCategoriesComponent,
       },
     
