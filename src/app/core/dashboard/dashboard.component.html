@@ -30,6 +30,10 @@
             <span><i class="fa fa-th-large title-m-l" aria-hidden="true"></i></span>
             <span class="title-m-l">Sub Categories</span> 
           </a>
+          <a [routerLink]="['/dashboard/Province']"  [routerLinkActive]="['boxclass']"   class="item-sidebar d-pointer ">
+            <span><i class="fa fa-map title-m-l" aria-hidden="true" ></i></span>
+            <span class="title-m-l">Province</span> 
+          </a>
           <br/><br/><br/><br/><br/><br/><br/><br/><hr/>
           
           <a [ngClass]="Menu['Logout'] ? 'boxclass' : 'item-sidebar'" id="logout-btn" (click)="Logout()" class="list-group-item list-group-item-action d-pointer "> <span><i class="fa fa-sign-out" aria-hidden="true"></i></span><span class="title-m-l">Logout</span></a>

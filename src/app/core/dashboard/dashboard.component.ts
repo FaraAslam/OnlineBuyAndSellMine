@@ -59,6 +59,7 @@ export class DashboardComponent implements OnInit{
       Project: false,
       Users: false,
       profile: false,
+     
     }
     this.Menu[item]=true;
     

@@ -11,7 +11,8 @@ import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatIconModule } from '@angular/material/icon';
 import { DashboardChartComponent } from './dashboard-chart/dashboard-chart.component'
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import {MatSelectModule} from '@angular/material/select';
     CategoriesComponent,
     ProfileComponent,
     DashboardChartComponent,
-    
+   
   ],
   imports: [
     CommonModule,
@@ -34,5 +35,5 @@ import {MatSelectModule} from '@angular/material/select';
     MatSelectModule
   ]
 })
-export class DashboardModule { 
+export class DashboardModule {
 }

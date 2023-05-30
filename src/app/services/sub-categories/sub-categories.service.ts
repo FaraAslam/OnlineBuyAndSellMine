@@ -14,9 +14,9 @@ export class SubCategoriesService {
 
 
   //api/SubCategory/get-subCategories/{categoryId}
-  getSubCategories(){
+  getSubCategories(categoryId:any){
    
-      return this._repositoryService.get('SubCategory/get-subCategories/{categoryId}',true)
+      return this._repositoryService.get('SubCategory/get-subCategories/'+categoryId,true)
            .pipe(map((response: any) => {
                 return response;
       }));

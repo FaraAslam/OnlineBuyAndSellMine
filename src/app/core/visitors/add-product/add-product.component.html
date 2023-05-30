@@ -1,62 +1,73 @@
 <div class="container">
     <form (ngSubmit)="onSubmitAddProduct()" novalidate>
-        <br /><br /><br /><br />
+        <br /><br />
         <div class="row">
-            <div class="col-12">
-
+            <div class="col-lg-3 col-md-2 col-sm-12">
                 <label class="form-field-title">Categories</label>
                 <input class="input-field" type="text" placeholder="search" />
             </div>
 
-            <div class="col-12">
-                <label class="form-field-title1">Product Title</label>
-                <input class="input-field1" type="text" placeholder="search" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <label class="form-field-title2">Description</label>
-                <input class="input-field2" type="text" placeholder="" />
+
+
+            <div class="row">
+                <div class="col-lg-3 col-md-2 col-sm-12 mt-4">
+                    <label class="form-field-title">Product Title</label>
+                    <input class="input-field" type="text" placeholder="" />
+                </div>
             </div>
 
+
+            <div class="row">
+                <div class="col-lg-3 col-md-2 col-sm-12 mt-4">
+                    <label class="form-field-title">Description</label>
+                    <input class="input-field1" type="text" placeholder="" />
+                </div>
+            </div>
             <div class="col-12">
-                <label class="form-field-title3"></label><br />
+                <br />
                 <div class="upload-image">
-                    <i class="fa fa-cloud-upload img-upload-icon"><br /><br />
+                    <i class="fa fa-cloud-upload img-upload-icon mt-5"><br />
                         <p>upload</p>
                     </i>
                 </div>
+            </div>
 
+            <div class="col-md-4 mt-3">
+                <label class="form-label ">Location</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="col-md-6 mt-3">
+                <label class="form-label">City</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="col-md-4 mt-3">
+                <label class="form-label">Area</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="col-md-6 mt-3 ">
+                <label class="form-label">Price</label>
+                <input type="text" class="form-control">
+            </div>
+
+            <div class="row">
                 <div class="col-12">
+                    <mat-radio-group>
 
-                    <label class="Title1">Location</label>
-                    <input class="box1" type="text" placeholder="search" />
-                    <label class="Title2">City</label>
-                    <input class="box2" type="text" placeholder="search" />
-                </div>
-                <div class="col-12">
+                        <label class="Radio-group-label">Condition</label><br />
+                        <mat-radio-button class="radio-btn" value="1">Old</mat-radio-button>
+                        <mat-radio-button class="radio-btn" value="2">New</mat-radio-button><br />
 
-                    <label class="Title3">Area</label>
-                    <input class="box3" type="text" placeholder="search" />
-                    <label class="Title4">Price</label>
-                    <input class="box4" type="text" placeholder="search" />
+                        <label class="Radio-group-label1">Target</label><br />
+                        <mat-radio-button class="radio-btn1" value="3">Men</mat-radio-button>
+                        <mat-radio-button class="radio-btn1" value="4">Women</mat-radio-button>
+
+                    </mat-radio-group>
                 </div>
-                <div class="row">
-                    <div class="col-12">
-                        <mat-radio-group>
-                            <label class="Radio-group-label1">Condition</label>
-                            <mat-radio-button class="radio-btn1" value="1">Old</mat-radio-button>
-                            <mat-radio-button class="radio-btn2" value="2">New</mat-radio-button>
-                            <label class="Radio-group-label2">Target</label>
-                            <mat-radio-button class="radio-btn3" value="3">Men</mat-radio-button>
-                            <mat-radio-button class="radio-btn4" value="4">Women</mat-radio-button>
-                        </mat-radio-group>
-                    </div>
-                    <div class="button">
-                        <button type="submit" class="btn">Publish</button>
-                    </div>
+                <div class="button mt-4">
+                    <button type="submit" class="btn">Publish</button>
                 </div>
             </div>
         </div>
+        <br /> <br />
     </form>
 </div>

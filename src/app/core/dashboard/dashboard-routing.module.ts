@@ -7,6 +7,8 @@ import { ProductsComponent } from './products/products.component';
 import { VisitorListComponent } from './visitor-list/visitor-list.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SubCategoriesComponent } from './sub-categories/sub-categories.component';
+import { ProvinceComponent } from './province/province.component';
+import { CityComponent } from './city/city.component';
 
 const routes: Routes = [
   {
@@ -43,7 +45,14 @@ const routes: Routes = [
         path: 'categories/sub-categories/:categoryId',
         component: SubCategoriesComponent,
       },
-    
+      {
+        path: 'province',
+        component: ProvinceComponent,
+      },
+      {
+        path: 'province/city/:provinceId',
+        component: CityComponent,
+      },
     ],
   },
 ];

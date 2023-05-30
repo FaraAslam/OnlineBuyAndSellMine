@@ -29,19 +29,20 @@ export class SubCategoriesComponent implements OnInit {
     this.categoryId = routeParams.get('categoryId');
     debugger
     this.loadSubCategoryList()
+    this.categoryId=routeParams.get('categoryId');
   }
 
   loadSubCategoryList() {
     debugger
-    this.subCategoriesService.getSubCategories().subscribe((data) => {
-      debugger
+    this.subCategoriesService.getSubCategories(this.categoryId).subscribe((data) => {
+      console.log(data)
       var dt = data.data;
       for (let a = 0; a < dt.length; a++) {
         let _subCategory: subCategory = {
           name: dt[a].name,
           categoryId: dt[a].categoryId,
           subCategoryId: dt[a].subCategoryId,
-          catagoryName: dt[a].catagoryName,
+          categoryName: dt[a].categoryName,
         }
         this.subCategories.push(_subCategory);
       }
