@@ -5,6 +5,7 @@ import { CategoryProductsComponent } from './category-products/category-products
 import { HomeComponent } from './home/home.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { VisitorsComponent } from './visitors.component';
+import { SellerProfileComponent } from './seller-profile/seller-profile.component';
 
 const routes: Routes = [
   {
@@ -22,7 +23,7 @@ const routes: Routes = [
         component: HomeComponent,
       },
       {
-        path: 'product-details',
+        path: 'product-details/:productId',
         component: ProductDetailsComponent,
       },
       {
@@ -32,7 +33,11 @@ const routes: Routes = [
       {
         path:'add-product',
         component: AddProductComponent,    
-      }
+      },
+      {
+        path:'seller-profile',
+        component: SellerProfileComponent,    
+      },
     ],
   },
 ];

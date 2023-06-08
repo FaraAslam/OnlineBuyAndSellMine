@@ -24,7 +24,7 @@ loadProvinceList(): void {
     for (let a = 0; a < dt.length; a++) {
       let province: province = {
         name: dt[a].name,
-        provinceId: ''
+        provinceId:dt[a].provinceId, 
       }
       this.province.push(province);
     }

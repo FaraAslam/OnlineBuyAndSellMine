@@ -23,7 +23,7 @@ export class MenuNavbarComponent implements OnInit {
     //AllCategoies
 loadAllCategory(){   
   this.menuNavbarService.GetCategories().subscribe((data) => {
-    debugger
+    
     var dt=data.data;
       for(let a = 0; a < dt.length; a++){
         let _maincategory:Category={ 

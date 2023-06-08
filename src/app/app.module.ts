@@ -28,6 +28,7 @@ import { EditProductComponent } from './user-product/edit-product/edit-product.c
 import { SubCategoriesComponent } from './core/dashboard/sub-categories/sub-categories.component';
 import { CityComponent } from './core/dashboard/city/city.component';
 import { ProvinceComponent } from './core/dashboard/province/province.component';
+import { SellerProfileComponent } from './core/visitors/seller-profile/seller-profile.component';
 
 
 
@@ -51,6 +52,7 @@ import { ProvinceComponent } from './core/dashboard/province/province.component'
     SubCategoriesComponent,
     ProvinceComponent,
     CityComponent,
+    SellerProfileComponent,
     
   ],
   imports: [

@@ -1,0 +1,23 @@
+.image{
+position: relative;
+ margin-left: 121px;
+ margin-top: 95px;   
+border-radius:50%
+}
+.user-info{
+    margin-left: 121px;
+}
+.products-heading{
+    margin-left: 300px;
+margin-top: -30%;
+}
+.card{
+background: #FFFFFF;
+border: 1px solid rgba(0, 0, 0, 0.25);
+margin-left: 72%;
+margin-top: -20px;
+}
+h3{
+    margin-left: 300px; 
+    margin-top: 10px; 
+}

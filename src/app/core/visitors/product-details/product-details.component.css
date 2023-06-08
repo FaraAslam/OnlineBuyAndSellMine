@@ -1,48 +1,32 @@
-.seller-description-title{
-    clip-path: polygon(50% 0, 60% 92%, 100% 92%, 100% 100%, 75% 100%, 30% 100%, 0 100%, 0 0) !important;
+.card{
+   
+    margin-left: 80px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 10px ;
 }
-.description-title{
-    clip-path: polygon(17% 0, 22% 92%, 100% 92%, 100% 100%, 75% 100%, 30% 100%, 0 100%, 0 0) !important;
+.image-field{
+    margin-left: 6px;
 }
-.min-ht{
-    min-height: 309px;
+ .description-card{
+    width: 385px;
+   
+   margin-left: 10px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+} 
+button{
+ width: 65px;
+height: 30px;
+
+
+color: #26A5B9;
+background: #B5EFF0;
+border-radius: 5px;
+border-color:#B5EFF0 ;
 }
-.price-title{
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 23px;
-    color: #000000;
-}
-.price{
-    float: right;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 28px;
-    color: #000000;
-}
-.profile-img {
-    border-radius: 50%;
-}
-#seller-title{
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 23px;
-    color: #000000;
-}
-.sc-number{
-    font-style: normal;
-    font-weight: 300;
-    font-size: 18px;
-    line-height: 23px;
-    color: #666666;
-}
-#vs-profile{
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 28px;
-    color: #26A5B9;
-}
+.products-heading{    
+height: 57px;
+} 
+                 

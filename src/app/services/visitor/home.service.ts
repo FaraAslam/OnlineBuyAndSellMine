@@ -10,24 +10,24 @@ import { RepositoryService } from '../repository/repository.service';
 export class HomeService {
 
      constructor(private router: Router, private repositoryService: RepositoryService) { }
-
+     //api/Home/get-recent-Products-for-home-page
 
      GetRecentProductsForHomePage() {
-          return this.repositoryService.get('Home/get-recent-Products-for-home-page',false)
+          return this.repositoryService.get('Home/get-recent-Products-for-home-page',true)
                .pipe(map((response: any) => {
                     return response;
                }));
      }
-
+     //api/Home/get-new-Products-for-homePage
      GetBrandNewProductsForHomePage() {
-          return this.repositoryService.get('Home/get-new-Products-for-homePage',false)
+          return this.repositoryService.get('Home/get-new-Products-for-homePage',true)
                .pipe(map((response: any) => {
                     return response;
                }));
      }
-
+     //api/Home/get-used-Products-for-homePage
      GetUsedProductsForHomePage() {
-        return this.repositoryService.get('Home/get-used-Products-for-homePage',false)
+        return this.repositoryService.get('Home/get-used-Products-for-homePage',true)
              .pipe(map((response: any) => {
                   return response;
              }));

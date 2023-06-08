@@ -1,21 +1,27 @@
-.slider{
-    margin-top: 5px;
- }
-.products-card{
-    padding: 0px 10px 10px 10px;
-}
-.view-more{
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 19px;
-    color: #26A5B9;
-    margin-top: 10px;
-
+.slider {
+    margin-top: 30px;
 }
 
-.b-n-product
-{
-    clip-path: polygon(19% 0, 22% 92%, 100% 92%, 100% 100%, 75% 100%, 30% 100%, 0 100%, 0 0) !important;
+.product-card {
+
+
+    background: #FFFFFF;
+    margin-left: 10px;
+}
+
+.products-heading {
+    width: 1290px;
+}
+
+.product-title {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }

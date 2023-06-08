@@ -29,7 +29,7 @@ export class SubCategoriesComponent implements OnInit {
     this.categoryId = routeParams.get('categoryId');
     debugger
     this.loadSubCategoryList()
-    this.categoryId=routeParams.get('categoryId');
+    
   }
 
   loadSubCategoryList() {

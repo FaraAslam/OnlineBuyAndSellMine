@@ -20,5 +20,11 @@ export class ProductService {
                     return response;
                }));
      }
-      
+     //api/Product/get-product/{productId}
+     GetAllProductDetials(productId : any) {
+          return this.repositoryService.get('Product/get-product/'+productId,true)
+               .pipe(map((response: any) => {
+                    return response;
+               }));
+     } 
 }
