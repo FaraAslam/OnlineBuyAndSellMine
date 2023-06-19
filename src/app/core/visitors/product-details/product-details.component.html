@@ -1,87 +1,100 @@
 <div class=" container mt-navbar">
     <div class="row">
-        <div class="col-lg-8 mt-3"> 
-            <div class="card ">
-                <div class="col-lg-6 col-md-4 col-sm-12 mt-2" >
-                    <img height="347" width="440" src={{ProductDetail.imageLink}} class="img-fluid rounded-start"
-                        alt="...">
-                    <!-- <img class="image-field mt-2 mb-3 " height="82" width="90" title=""
-                        src={{ProductDetail.imageLink}}> -->
-                  
-                </div>
-                 <div class="col-md-2">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ProductDetail.name}}</h5>
-                        <p class="card-text">Price :{{ProductDetail.price}}</p>
-                        <p class="card-text">Condition</p>
-                        <p class="card-text"> Category type</p>
-                        <button>Bags</button>
-                    </div>
-                </div> 
-            </div>
-        </div>
-        <div class="col-lg-4 mt-3 ">
-            <div class="card min-ht">
-                <h6 class="products-heading">Seller Description</h6>
+        <div class="col-lg-8 mt-3">
+            <div class="card">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-2 col-md-3 col-sm-6">
-                            <img class="profile-img " height="50" width="50" title=""
-                                src="assets/Images/RecentProducts.png">
+
+                        <div class="col-lg-6 col-md-8 col-sm-12 mt-2">
+                            <img height="347" width="440" src={{ProductDetail.imageLink}}
+                                class="img-fluid rounded-start" alt="...">
+                            <!-- <img class="image-field mt-2 mb-3 " height="82" width="90" title=""
+                        src={{ProductDetail.imageLink}}> -->
+
+                        </div>
+                        <div class="col-lg-6 col-md-4 col-sm-12">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ProductDetail.name}}</h5>
+                                <p class="card-text">Price :{{ProductDetail.price}}</p>
+                                <p class="card-text">Condition</p>
+                                <p class="card-text"> Category type</p>
+                                <button>Bags</button>
+                            </div>
                         </div>
                     </div>
-                    <hr style="color:#26A5B9 ;">
-                    <span>Seller Phone No</span><br />
-                    <span>123456789</span>
-                    <br><br><br>
-                    <h6 class="fr" id="vs-profile">View Seller Profile</h6>
                 </div>
             </div>
-        
+        </div>
+        <div class="col-lg-4 mt-2 ">
+            <div class="card min-ht mt-2">
+                <div class="col-lg-12">
+                    <h6 class="products-heading seller-description-title">Seller Description</h6>
+                </div>
+                <div class="col-lg-6 col-md-3 col-sm-6">
+                    <img class=" profile-img " height="70" width="70" title="" src={{ProductDetail.sellerProfileImage}}>
+                    {{ProductDetail.sellerName}}
+                </div>
+                <div class="col-lg-11 col-md-3 col-sm-6">
+            <hr style="color:#26A5B9 ;">
+            <span class="sc-number" ><i class="fa fa-phone" aria-hidden="true"></i> Seller Contact No.</span>
+                    <span class="fr second-heading" >{{ProductDetail.sellerPhoneNumber}}</span><br>
+        </div>
+        <div class="col-lg-11 col-md-3 col-sm-6">
+            <span class="sc-number " ><i  class=" fa fa-address-card"  ></i> Address</span>
+           <span class="fr second-heading" id="seller-title">{{ProductDetail.sellerAddress}}</span><br><br><br> 
+        </div>
+        <div class="col-lg-11 col-md-3 col-sm-6">  
+            <h6 class="fr second-heading d-pointer" id="vs-profile" [routerLink]="['/seller',ProductDetail.createdBy]">View Seller Profile</h6>
+        </div>
+        </div>
+      
     </div>
-    </div>
-    <div class="col-lg-8 mt-3 ">
+</div>
+<div class="col-lg-8 mt-3">
     <div class="card">
-        <h6 class="products-heading ">Description</h6>
         <div class="container">
             <div class="row">
-                <div class="row g-0">
-                </div>
-                <div class="col-md-4">
-                    <div class="card-body">
-                        <p>Fabric:PU Leather</p>
-                        <p>Size:(8x6 In)</p>
-                        <p>Make up Pouch with Plastic Chain</p>
-                        <p class="card-text">Elegant Design</p>
-                        <p class="card-text">Best for all occasions Casual , Parties and daily life</p><br />
-                        <p class="card-text"> Note: Product Color May Slightly Due to Photographic
-                            Lighting Source or your Monitor Setting</p><br />
-                        <p>Please Allow 3-4 Cm Size Difference</p>
+                <h6 class="products-heading description-title ">Description</h6>
+                <div class="container">
+                    <div class="row">
+                        <div class="row g-0">
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card-body">
+                                <p>Fabric:PU Leather</p>
+                                <p>Size:(8x6 In)</p>
+                                <p>Make up Pouch with Plastic Chain</p>
+                                <p class="card-text">Elegant Design</p>
+                                <p class="card-text">Best for all occasions Casual , Parties and daily life</p>
+                                <br />
+                                <p class="card-text"> Note: Product Color May Slightly Due to Photographic
+                                    Lighting Source or your Monitor Setting</p><br />
+                                <p>Please Allow 3-4 Cm Size Difference</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <div class="card mt-3">
     <h6 class="products-heading">Related Products</h6>
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-md-4 col-sm-12">
-                <div class="product-card">
+            <div class="col-lg-3 col-md-4 col-sm-12" *ngFor="let ProductItem of ProductItems ">
+                <div class="product-card mt-3">
                     <div class="card" style="width: 18rem;">
-                        <img src="assets/Images/RecentProducts.png" class="card-img-top" alt="...">
+                        <img src={{ProductItem.imageLink}} class="card-img-top" height="230" width="288" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Makeup Pouch With Plastic Chain</h5>
-                            <p class="price">Rs: 1,200</p>
+                            <h5 class="card-title">{{ProductItem.name}}</h5>
+                            <p class="price">Rs: {{ProductItem.price}}</p>
                             <i class="fa fa-heart wishlist-icon"></i>
                             <i class="fa fa-eye eye-icon"></i>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div><br>
     </div>
 </div><br><br>

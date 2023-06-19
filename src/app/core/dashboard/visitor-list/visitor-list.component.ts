@@ -52,13 +52,15 @@ export class VisitorListComponent implements OnInit {
       var dt=data.data;
         for(let a = 0; a < dt.length; a++){
           let _visitor:UserList={
-            noOfProducts:dt[a].noOfProducts,
-            fullName:dt[a].firstName + " " + dt[a].lastName,
-            phoneNumber:dt[a].phoneNumber,
-            email:dt[a].email,
-            userId:dt[a].userId,
-            userName:dt[a].userName,
-            profileImage:dt[a].profileImage == null ? "assets/Images/RecentProducts.png" :dt[a].imageLink
+            noOfProducts: dt[a].noOfProducts,
+            fullName: dt[a].firstName + " " + dt[a].lastName,
+            phoneNumber: dt[a].phoneNumber,
+            email: dt[a].email,
+            userId: dt[a].userId,
+            userName: dt[a].userName,
+            profileImage: dt[a].profileImage == null ? "assets/Images/RecentProducts.png" : dt[a].imageLink,
+            address: '',
+            whatsAppNumber: 0
           } 
         this.userList.push(_visitor);
       } 

@@ -27,4 +27,11 @@ export class ProductService {
                     return response;
                }));
      } 
+     //api/Product/get-Product-related-items/{categoryId}
+     GetRelatedProducts(categoryId : any) {
+          return this.repositoryService.get('Product/get-Product-related-items/'+categoryId,true)
+               .pipe(map((response: any) => {
+                    return response;
+               }));
+     } 
 }

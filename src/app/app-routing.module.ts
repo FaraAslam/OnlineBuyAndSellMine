@@ -6,6 +6,8 @@ import { EditProductComponent } from './user-product/edit-product/edit-product.c
 import { ProductsComponent } from './user-product/products/products.component';
 import { UserProductComponent } from './user-product/user-product.component';
 import { UserProfileComponent } from './user-product/user-profile/user-profile.component';
+import { UserProductsComponent } from './user/user-products/user-products.component';
+
 
 const routes: Routes = [
   {
@@ -16,6 +18,18 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: () => import('./core/dashboard/dashboard.module').then(mod => mod.DashboardModule)
   },
+  {
+    path: 'user',
+    loadChildren: () => import('./core/user/user.module').then(mod => mod.UserModule)
+  },
+ 
+// path: 'user',
+// children:[
+//   {path:'userproduct', component:UserProductsComponent},
+//   {path:'userprofile', component:UserProfileComponent},
+//   {path:'editproduct', component:EditProductComponent}
+// ]
+//  },
   {
     path: 'signup',
     component: SignUpComponent
@@ -40,6 +54,7 @@ const routes: Routes = [
     path: 'editproduct',
     component: EditProductComponent
   },
+ 
   
 ];
 

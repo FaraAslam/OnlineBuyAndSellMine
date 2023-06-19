@@ -35,9 +35,10 @@ const routes: Routes = [
         component: AddProductComponent,    
       },
       {
-        path:'seller-profile',
+        path:'seller/:userId',
         component: SellerProfileComponent,    
       },
+     
     ],
   },
 ];

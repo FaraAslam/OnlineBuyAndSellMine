@@ -1,11 +1,6 @@
-.image{
-position: relative;
- margin-left: 121px;
- margin-top: 95px;   
-border-radius:50%
-}
-.user-info{
-    margin-left: 121px;
+
+a{
+    margin-left: 50px;
 }
 .products-heading{
     margin-left: 300px;
@@ -20,4 +15,18 @@ margin-top: -20px;
 h3{
     margin-left: 300px; 
     margin-top: 10px; 
+}
+.SelImg{
+    box-sizing: border-box;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #26A5B9;
+    border-radius: 50%;
+ 
+}
+.product-card{
+  margin-left: 90%;
+   margin-top:10%;
+
+
 }

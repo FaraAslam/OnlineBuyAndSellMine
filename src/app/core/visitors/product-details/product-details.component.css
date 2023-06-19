@@ -1,6 +1,6 @@
 .card{
    
-    margin-left: 80px;
+    margin-left: 0px;
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: 10px ;
@@ -26,7 +26,24 @@ background: #B5EFF0;
 border-radius: 5px;
 border-color:#B5EFF0 ;
 }
-.products-heading{    
-height: 57px;
+.products-heading{
+    width: 100%;
+}
+.seller-description-title{
+    clip-path: polygon(48% 0, 56% 92%, 100% 92%, 100% 100%, 75% 100%, 30% 100%, 0 100%, 0 0) !important;
 } 
-                 
+.description-title{
+    clip-path: polygon(15% 0, 19% 92%, 100% 92%, 100% 100%, 75% 100%, 30% 100%, 0 100%, 0 0) !important;
+} 
+.card-title{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}     

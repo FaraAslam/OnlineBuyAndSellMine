@@ -20,4 +20,21 @@ export class UserService {
                 return response;
            }));
     }
+    //api/User/get-user-profile/{userId}
+    sellerProfileDate(id: any) {
+      return this.repositoryService.get(`User/get-user-profile/` + id, true).pipe(
+        map((response: any) => {
+          return response;
+        })
+      );
+    }
+    sellerProductsData(id: any) {
+      return this.repositoryService
+        .get('Product/get-user-Products/' + id, false)
+        .pipe(
+          map((response: any) => {
+            return response;
+          })
+        );
+    }
 }
