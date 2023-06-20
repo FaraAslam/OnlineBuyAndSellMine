@@ -18,18 +18,18 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: () => import('./core/dashboard/dashboard.module').then(mod => mod.DashboardModule)
   },
-  {
-    path: 'user',
-    loadChildren: () => import('./core/user/user.module').then(mod => mod.UserModule)
-  },
- 
-// path: 'user',
-// children:[
-//   {path:'userproduct', component:UserProductsComponent},
-//   {path:'userprofile', component:UserProfileComponent},
-//   {path:'editproduct', component:EditProductComponent}
-// ]
-//  },
+  // {
+  //   path: 'user',
+  //   loadChildren: () => import('./user/user.module').then(mod => mod.UserModule)
+  // },
+ {
+path: 'user',
+children:[
+  {path:'userproduct', component:UserProductsComponent},
+  {path:'userprofile', component:UserProfileComponent},
+  {path:'editproduct', component:EditProductComponent},
+]
+ },
   {
     path: 'signup',
     component: SignUpComponent
@@ -50,7 +50,7 @@ const routes: Routes = [
     path: 'userprofile',
     component: UserProfileComponent
   },
-  {
+   {
     path: 'editproduct',
     component: EditProductComponent
   },
