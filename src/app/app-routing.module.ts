@@ -6,7 +6,8 @@ import { EditProductComponent } from './user-product/edit-product/edit-product.c
 import { ProductsComponent } from './user-product/products/products.component';
 import { UserProductComponent } from './user-product/user-product.component';
 import { UserProfileComponent } from './user-product/user-profile/user-profile.component';
-import { UserProductsComponent } from './user/user-products/user-products.component';
+import { UserProductsComponent } from './core/user/user-products/user-products.component';
+
 
 
 const routes: Routes = [
@@ -18,18 +19,18 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: () => import('./core/dashboard/dashboard.module').then(mod => mod.DashboardModule)
   },
-  // {
-  //   path: 'user',
-  //   loadChildren: () => import('./user/user.module').then(mod => mod.UserModule)
-  // },
- {
-path: 'user',
-children:[
-  {path:'userproduct', component:UserProductsComponent},
-  {path:'userprofile', component:UserProfileComponent},
-  {path:'editproduct', component:EditProductComponent},
-]
- },
+  {
+    path: 'user',
+    loadChildren: () => import('./core/user/user.module').then(mod => mod.UserModule)
+  },
+ //{
+// path: 'user',
+// children:[
+//   {path:'.core/userproduct', component:UserProductsComponent},
+//   {path:'.core/userprofile', component:UserProfileComponent},
+//   {path:'.core/editproduct', component:EditProductComponent},
+// ]
+//  },
   {
     path: 'signup',
     component: SignUpComponent
@@ -38,22 +39,22 @@ children:[
     path: 'login',
     component: LoginComponent
   },
-  {
-    path: 'userProduct',
-    component: UserProductComponent
-  },
-  {
-    path: 'product',
-    component: ProductsComponent
-  },
-  {
-    path: 'userprofile',
-    component: UserProfileComponent
-  },
-   {
-    path: 'editproduct',
-    component: EditProductComponent
-  },
+  // {
+  //   path: 'userProduct',
+  //   component: UserProductComponent
+  // },
+  // {
+  //   path: 'product',
+  //   component: ProductsComponent
+  // },
+  // {
+  //   path: 'userprofile',
+  //   component: UserProfileComponent
+  // },
+  //  {
+  //   path: 'editproduct',
+  //   component: EditProductComponent
+  // },
  
   
 ];

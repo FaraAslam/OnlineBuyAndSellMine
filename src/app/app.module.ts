@@ -29,7 +29,9 @@ import { SubCategoriesComponent } from './core/dashboard/sub-categories/sub-cate
 import { CityComponent } from './core/dashboard/city/city.component';
 import { ProvinceComponent } from './core/dashboard/province/province.component';
 import { SellerProfileComponent } from './core/visitors/seller-profile/seller-profile.component';
-import { UserModule } from './user/user.module';
+import { UserModule } from './core/user/user.module';
+
+
 
 
 
@@ -55,6 +57,7 @@ import { UserModule } from './user/user.module';
     ProvinceComponent,
     CityComponent,
     SellerProfileComponent,
+
     
   ],
   imports: [

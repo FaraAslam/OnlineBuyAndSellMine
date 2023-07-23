@@ -1,40 +1,57 @@
 <nav class="navbar navbar-expand-lg navbar-head">
-    <!-- Container wrapper -->
-    <div class="container-fluid">
-      <!-- Toggle button -->
-      <button class="navbar-toggler" style="background-color: white" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
-  
-      <!-- Collapsible wrapper -->
-      <div class="collapse navbar-collapse">
-        <!-- Navbar brand -->
-        <span ><img class="logo-top"  [routerLink]="['/']" title="Online Sell and Buy" src="assets/Images/logo-w.png"></span> 
-        <!-- Left links -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <div class="input-group">
-              <input class="form-control py-2" style="border-radius: 0px" type="search" placeholder="What are you looking for?" (keyup)="onKeyUp($event)" [(ngModel)]="searchKey" />
-              <span class="input-group-append">
-                <button class="btn search-btn-navbar " type="button" [routerLink]="['/shop/search', searchKey]">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
-          </li>
-        </ul>
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button class="navbar-toggler" style="background-color: white" type="button" data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse">
+      <!-- Navbar brand -->
+      <span><img class="logo-top" [routerLink]="['/']" title="Online Sell and Buy"
+          src="assets/Images/logo-w.png"></span>
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <div class="input-group">
+            <input class="form-control py-2" style="border-radius: 0px" type="search"
+              placeholder="What are you looking for?" (keyup)="onKeyUp($event)" [(ngModel)]="searchKey" />
+            <span class="input-group-append">
+              <button class="btn search-btn-navbar " type="button" [routerLink]="['/shop/search', searchKey]">
+                <i class="fa fa-search"></i>
+              </button>
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- Icon -->
+
+    <a class="navbar-link-text1" [routerLinkActive]="['ActiveRoute']">
+      <img src="./assets/Images/shop/cart-icon.png" [routerLink]="['/shop/basket']" />
+    </a>
+    <i class="fa fa-commenting-o d-pointer" *ngIf="UserId != null" [routerLink]="['/chat', UserId]"
+      style='font-size:36px ;margin-right: 27px; height: 37px; color: white;'></i>
+
+    <div class="dropdown" style="float:right;">
+      <img class="rounded-circle dropbtn" height="40" width="40" src="./assets/Images/profileImage.png"
+        routerLink="userProduct" />
+      <div class="dropdown-content">
+        <a routerLink="/login" *ngIf="userId ==null">LogIn</a><br />
+        <a routerLink="/userprofile" *ngIf="userId == null ">User Profile</a><br />
       </div>
-        <!-- Icon -->
-        
-        <a class="navbar-link-text1" [routerLinkActive]="['ActiveRoute']">
-          <img src="./assets/Images/shop/cart-icon.png" [routerLink]="['/shop/basket']" />
-        </a>
-        <img  class="rounded-circle" height="40" width="40" src="./assets/Images/profileImage.png" routerLink="userProduct"/>
-        <span class="mt-1 to-selll-btn">To Sell</span>
-       
-      </div>
-  </nav>
-  <!-- <span class="mobile-view">
+    </div>
+
+
+
+    <span class="mt-1 to-selll-btn">To Sell</span>
+
+  </div>
+</nav>
+<!-- <span class="mobile-view">
     <input type="checkbox" id="ham-menu" />
     <label for="ham-menu">
       <div class="hide-des">
@@ -82,9 +99,9 @@
     </div>
   </span>-->
 <div class="menu-navebarr">
-    <ul class="nav justify-content-center">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Pet</a>
-        </li>
-      </ul>
+  <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">Pet</a>
+    </li>
+  </ul>
 </div>

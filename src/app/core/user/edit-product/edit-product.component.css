@@ -1,0 +1,13 @@
+h1{
+    position: absolute;
+   left: 320px;
+   top: 40px;
+   font-weight: 500;
+   color: #000000;
+   }
+   .logo{
+       position: absolute;
+   
+   right: 100px;
+   top:30px;
+   }
