@@ -3,9 +3,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { AccountService } from 'src/app/services/account/account.service';
-import { Category} from '../../Models/category-model';
+import { Category, SubCategory} from '../../Models/category-model';
 import { MenuNavbarService } from 'src/app/services/menu-navbar/menu-navbar.services';
-import {  subCategory } from '../../Models/visitor/subcategories-model';
+import {   subCategory } from '../../Models/visitor/subcategories-model';
 import { SubCategoriesService } from 'src/app/services/sub-categories/sub-categories.service';
 import { ProductService } from 'src/app/services/visitor/product.service';
 import Swal from 'sweetalert2';
@@ -50,7 +50,7 @@ export class AddProductComponent  implements OnInit{
     loadAllCategory() {
       
       this.subCategoriesService.GetCategories().subscribe((data) => {
-      debugger
+    
         var dt = data.data;
         for (let a = 0; a < dt.length; a++) {
           let _mainCategory: Category = {
@@ -66,29 +66,29 @@ export class AddProductComponent  implements OnInit{
         }
       });
     }
-    
-    GetSubCategoriesById() {
+  GetSubCategoriesById() {
     debugger
-    this.subCategoriesService.getSubCategories(this.categoryId).subscribe((data) => {
+    this.subCategories = []
+    this.subCategoriesService.GetSubCategoriesById(this.categoryId).subscribe((data) => {
       debugger
-      console.log(data)
       var dt = data.data;
       for (let a = 0; a < dt.length; a++) {
-        let _subCategory: subCategory = {
+        let subCategory: SubCategory = {
           name: dt[a].name,
-          categoryId: dt[a].categoryId,
-          subCategoryId: dt[a].subCategoryId,
           catagoryName: dt[a].catagoryName,
+          categoryId: dt[a].categoryId,
+          subCategoryId: dt[a].subCategoryId
         }
-        this.subCategories.push(_subCategory);
+        this.subCategories.push(subCategory);
       }
       this.categoryName = this.subCategories[0].catagoryName
+
     }, (error) => {
-      console.log(error)
+      if (error.status == 401) {
+        this.accountService.doLogout();
+        this.router.navigateByUrl('/login');
+      }
     });
-  }
-  name(categoryId: any, name: any) {
-    throw new Error('Method not implemented.');
   }
     loadProvinces() {
       

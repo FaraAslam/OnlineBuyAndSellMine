@@ -7,4 +7,12 @@ export interface Category{
     searchKey:string,
     isOld:boolean| null
   }
+  export interface SubCategory{
+    categoryId:any,
+    subCategoryId:any,
+    name:string,
+    catagoryName:string,
+   
+  }
+ 
   

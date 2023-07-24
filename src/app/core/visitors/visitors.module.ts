@@ -9,7 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import {MatRadioModule} from '@angular/material/radio';
-
+import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,7 +25,9 @@ import {MatRadioModule} from '@angular/material/radio';
     FontAwesomeModule,
     MatIconModule,
     AngularEditorModule,
-    MatRadioModule
+    MatRadioModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     AddProductComponent,
