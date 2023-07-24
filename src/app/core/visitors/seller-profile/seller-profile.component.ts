@@ -20,7 +20,9 @@ export class SellerProfileComponent {
     profileImage: '',
     fullName: '',
     address: '',
-    whatsAppNumber: 0
+    whatsAppNumber: 0,
+    firstName: '',
+    lastName: ''
   };
   UserProductDetails: UserProductDetails[] = [];
   HowMuchProduct:number;
@@ -48,6 +50,8 @@ export class SellerProfileComponent {
       fullName: dt.fullName,
       address: dt.address,
       whatsAppNumber: dt.whatsAppNumber,
+      firstName: dt.firstName,
+      lastName: dt.lastName,
      }
    });
  }

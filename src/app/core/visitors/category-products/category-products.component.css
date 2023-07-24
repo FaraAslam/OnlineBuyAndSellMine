@@ -1,7 +1,7 @@
 .dropdown {
   width: 117px;
   height: 30px;
-  margin-left: 1100px;
+  margin-left: 1165px;
   top: -35px;
 
   background: #FFFFFF;
@@ -28,7 +28,7 @@ margin-top: 30px;
 }
 
 .products-heading {
-  width: 1230px;
+  width: 1270px;
   height: 58px;
 margin-left: 10px;
   background: #26A5B9;
@@ -40,5 +40,8 @@ margin-left: 10px;
   width: 318px;
   height: 363px;
   background: #FFFFFF;
- 
+
+  
+    margin-left: 10px;
+
 }

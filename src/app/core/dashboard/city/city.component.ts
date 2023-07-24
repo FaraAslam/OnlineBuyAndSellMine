@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LocationService } from 'src/app/services/location/location.service';
-import { Cities } from '../../Models/location';
+import { Cities } from '../../Models/location model';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({

@@ -35,6 +35,7 @@ export class SubCategoriesComponent implements OnInit {
   loadSubCategoryList() {
     debugger
     this.subCategoriesService.getSubCategories(this.categoryId).subscribe((data) => {
+      debugger
       console.log(data)
       var dt = data.data;
       for (let a = 0; a < dt.length; a++) {
@@ -42,7 +43,7 @@ export class SubCategoriesComponent implements OnInit {
           name: dt[a].name,
           categoryId: dt[a].categoryId,
           subCategoryId: dt[a].subCategoryId,
-          categoryName: dt[a].categoryName,
+          catagoryName: dt[a].catagoryName,
         }
         this.subCategories.push(_subCategory);
       }

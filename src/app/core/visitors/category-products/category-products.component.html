@@ -1,78 +1,36 @@
-<div class="container">
+<div class="container ">
     <div class="row">
-        <br/><br/>
+        <br /><br />
         <div class="col-2">
             <div class="search-field mt-5">
                 <input class="input-field" type="text" placeholder="search" />
                 <button type="submit" class="fa fa-search search__icon"></button>
             </div>
             <div class="dropdown">
-                <select class="form-select option" (change)="valueChange($event)">
+                <select class="form-select option" change="valueChange($event)">
                     <option value="All">All</option>
                     <option value="New">new</option>
                     <option value="old">old</option>
                 </select>
             </div>
         </div>
+    </div>
+    <div class="row">
         <div class="col-12">
-            <h6 class="products-heading">Makeup</h6>
+            <h6 class="products-heading">{{categoryName}}</h6>
         </div>
-        <br/>
-        <div class="product-card">
+        <div class="product-card" *ngFor="let categoryProducts of CategoryProducts">
             <div class="card" style="width: 18rem;">
-                <img src="assets/Images/RecentProducts.png" class="card-img-top" alt="...">
+                <img src={{categoryProducts.imageLink}} class="card-img-top" height="230" width="288" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Makeup Pouch With Plastic Chain</h5>
-                    <p class="price">Rs: 1,200</p>
+                    <h5 class="card-title">{{categoryProducts.name}}</h5>
+                    <p class="price">Rs:{{categoryProducts.price}} </p>
                     <i class="fa fa-heart wishlist-icon"></i>
                     <i class="fa fa-eye eye-icon"></i>
                 </div>
             </div>
         </div>
-        <div class="product-card">
-            <div class="card" style="width: 18rem;">
-                <img src="assets/Images/RecentProducts.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Makeup Pouch With Plastic Chain</h5>
-                    <p class="price">Rs: 1,200</p>
-                    <i class="fa fa-heart wishlist-icon"></i>
-                    <i class="fa fa-eye eye-icon"></i>
-                </div>
-            </div>
-        </div>
-        <div class="product-card">
-            <div class="card" style="width: 18rem;">
-                <img src="assets/Images/RecentProducts.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Makeup Pouch With Plastic Chain</h5>
-                    <p class="price">Rs: 1,200</p>
-                    <i class="fa fa-heart wishlist-icon"></i>
-                    <i class="fa fa-eye eye-icon"></i>
-                </div>
-            </div>
-        </div>
-        <div class="product-card">
-            <div class="card" style="width: 18rem;">
-                <img src="assets/Images/RecentProducts.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Makeup Pouch With Plastic Chain</h5>
-                    <p class="price">Rs: 1,200</p>
-                    <i class="fa fa-heart wishlist-icon"></i>
-                    <i class="fa fa-eye eye-icon"></i>
-                </div>
-            </div>
-        </div>
-        <div class="product-card mt-4">
-            <div class="card" style="width: 18rem;">
-                <img src="assets/Images/RecentProducts.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Makeup Pouch With Plastic Chain</h5>
-                    <p class="price">Rs: 1,200</p>
-                    <i class="fa fa-heart wishlist-icon"></i>
-                    <i class="fa fa-eye eye-icon"></i>
-                </div>
-            </div>
-        </div>
-        <br/><br/>
+        <br />
+        <br />
     </div>
 </div>

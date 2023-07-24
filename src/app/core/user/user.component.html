@@ -1,25 +1,33 @@
 
-   
-   
-        <nav>
-            <div class="sidebar">
-                <header><img src="./assets/Images/slider.png"><h5>Fa Creation</h5></header><br><br>
-                <ul>
-                    <li ><a  [routerLink]="['/userproduct']"> <i class="fa fa-qrcode m-4" ></i> Products</a></li>
-                    <li><a   [routerLink]="['/editproduct']"> <i class="fa fa-user-circle-o m-4"></i> Profile</a></li>
-                    <li><a  [routerLink]="['\signup']"> <i class="fa fa-sign-in m-4"></i> Sign Out</a></li>
-            
-            
-                </ul>
-          
-    
-          <div class="col-9 d-flex">
-            
+<div class="container-fluid">
+
+    <body>
+        <div class="sidebar d-flex" id="wrapper">
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-2 bg-sidebar border-right" id="sidebar-wrapper">
+                <header><img src="./assets/Images/userimg.png">
+                    <h5>Fa Creation</h5>
+                </header> <br /><br />
+                <div class="list-group">
+                    <a   [routerLink]="['/userproduct']" [routerLinkActive]="['boxclass']"  class="item-sidebar d-pointer ">
+                        <i class="fa fa-qrcode m-4 mt-3" aria-hidden="true" > </i> Products
+                    </a>
+                    <a   [routerLink]="['/editproduct']" [routerLinkActive]="['boxclass']"  class="item-sidebar d-pointer "> 
+                        <i class="fa fa-user-circle-o m-4 mt-3" aria-hidden="true"></i> Profile
+                </a>
+                <a  [routerLink]="['/signup']" [routerLinkActive]="['boxclass']"  class="item-sidebar d-pointer ">
+                    <i class="fa fa-sign-in m-4 mt-3" aria-hidden="true"></i> Sign Out
+            </a>
+
+                    <br /><br /><br /><br /><br /><br /><br /><br />
+                    <hr />
+
+
+                </div>
+            </div>
             <router-outlet></router-outlet>
-      </div>  
-    
-    </div>
-           </nav> 
-  
-   
- 
+
+        </div>
+
+    </body>
+</div>

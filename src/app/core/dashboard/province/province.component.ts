@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LocationService } from 'src/app/services/location/location.service';
-import { province } from '../../Models/location';
+import { province } from '../../Models/location model';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({

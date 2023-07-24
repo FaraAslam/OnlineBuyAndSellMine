@@ -60,7 +60,9 @@ export class VisitorListComponent implements OnInit {
             userName: dt[a].userName,
             profileImage: dt[a].profileImage == null ? "assets/Images/RecentProducts.png" : dt[a].imageLink,
             address: '',
-            whatsAppNumber: 0
+            whatsAppNumber: 0,
+            firstName: '',
+            lastName: ''
           } 
         this.userList.push(_visitor);
       } 

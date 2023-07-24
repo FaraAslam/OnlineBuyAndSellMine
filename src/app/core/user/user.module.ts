@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserRoutingModule } from './user-routing.module';
 import { UserProductsComponent } from './user-products/user-products.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -13,11 +13,14 @@ import { UserComponent } from './user.component';
     UserProductsComponent,
     UserProfileComponent,
     EditProductComponent,
-    UserComponent
+    UserComponent,
+
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class UserModule { }

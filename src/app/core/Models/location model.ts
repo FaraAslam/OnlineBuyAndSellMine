@@ -7,3 +7,11 @@ export interface Cities{
     name:string;
     provinceName:string;
 }
+export interface Provinces{
+    provinceId?:any,
+    cityId?:any,
+    name:string,
+    provinceName?:string,
+    isAdded?:boolean,
+    index?:number,
+}

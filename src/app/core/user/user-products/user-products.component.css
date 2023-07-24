@@ -1,13 +1,76 @@
-h1{
-    position: absolute;
-   left: 320px;
-   top: 40px;
-   font-weight: 500;
-   color: #000000;
-   }
-   .logo{
-       position: absolute;
-   
-   right: 100px;
-   top:30px;
-   }
+
+ .search-btn{
+  background-color:#B5EFF0;
+  border:1px solid #26A5B9  ;
+  border-left: 0;
+border-radius: 0 10px 10px 0;
+}
+
+.input{
+border:1px solid #26A5B9;
+border-right: 0;
+border-radius: 10px 0px 0px 10px;
+margin-left: 20px;
+width: 239px;
+}
+ h1 {
+  font-weight: 500px;
+      margin-left: 70px;
+      margin-top: 80px;
+      font-weight: 500;
+      color: #000000;
+      width: 200px;
+  } 
+.topImg{
+ 
+width: 221px;
+height: 90px;
+margin-left: 500px;
+top: 20px;
+}
+
+.title{
+  Font:Roboto;
+font-weight:500;
+Size:16px;
+line-height:18.75px;
+ text-align: left;
+}
+.price{
+  font-family: 'Roboto';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 28px;
+
+color: #000000;
+
+
+}
+.p{
+  font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 16px;
+margin-right: 40px;
+color: rgba(0, 0, 0, 0.25);
+}
+.icon{
+cursor: pointer;
+font-size: x-large;
+margin: -10px;
+}
+.icon:hover{
+color:#26A5B9;    
+}
+.card {
+  background-color: #ffff;
+ display: block;
+  height: 380px;
+  overflow: hidden;
+ margin-bottom: 30px;
+ margin-left: 30px ;
+
+}
+

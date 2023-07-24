@@ -12,7 +12,7 @@ export class SubCategoriesService {
 
   constructor(private router: Router,private _repositoryService:RepositoryService) { }
 
-
+ 
   //api/SubCategory/get-subCategories/{categoryId}
   getSubCategories(categoryId:any){
    
@@ -21,5 +21,18 @@ export class SubCategoriesService {
                 return response;
       }));
  }
+     //SubCategory
+     GetSubCategoriesById(categoryId:any) {
+      return this._repositoryService.get('SubCategory/get-subCategories/' + categoryId,true)
+           .pipe(map((response: any) => {
+                return response;
+           }));
+ }
+ GetCategories() {
+     return this._repositoryService.get('Category/get-categories',true)
+          .pipe(map((response: any) => {
+               return response;
+          }));
+}
   }
 

@@ -1,13 +1,88 @@
-h1{
-    position: absolute;
-   left: 320px;
-   top: 40px;
-   font-weight: 500;
-   color: #000000;
-   }
-   .logo{
-       position: absolute;
-   
-   right: 100px;
-   top:30px;
-   }
+h1 {
+font-weight: 500px;
+    margin-left: 70px;
+    margin-top: 60px;
+    font-weight: 500;
+    color: #000000;
+    width: 200px;
+}
+
+.input-field {
+    margin-left: 180px;
+    width: 754px;
+    height: 50px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+
+}
+.input-field1 {
+    width: 756px;
+    height: 177px;
+    margin-left: 180px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    
+}
+.form-field-title {
+    margin-left: 180px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #000000;
+    margin-top: -200;
+    width: 140px;
+}
+
+  .topImg{
+margin-left: 70%;
+margin-top: 50px;
+  }
+  .card{
+    margin-left:180px ;
+  }
+  .upload-image {
+    width: 108px;
+    height: 108px;
+    margin-left: 300px;
+    background: #D9D9D9;
+    border-radius: 10px;
+    margin-top: -130px;
+}
+
+.img-upload-icon {
+    margin-left: 40px;
+    width: 20px;
+    height: 20px;
+    background: #D9D9D9;
+   padding-top: 25px;
+}
+.form-label{
+    margin-left: 180px;
+font-weight: 500;
+font-size: 17px;
+color: #000000;
+
+}
+.form-control{
+    width: 350px;
+    margin-left: 180px;
+}
+.form-check{
+    margin-left:190px ;
+    display: inline-block;
+}
+.form-check-input{
+    border-color: #000000;
+    display: inline-block;
+}
+.button{
+    width: 119px;
+    margin-left: 94%;
+ height: 40px;
+    background: #26A5B9;
+    border-radius: 10px;
+    color:#FFFFFF;
+    text-align: center;
+ display: inline-block;
+    }

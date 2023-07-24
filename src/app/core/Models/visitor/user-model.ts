@@ -1,16 +1,17 @@
 export interface UserList{
     noOfProducts:number,
     userId:any,
-    firstName?:string,
-    lastName?:string,
+    firstName:string,
+    lastName:string,
     email:string,
     userName:string,
     phoneNumber:string,
-    profileImage:string,
+    profileImage:any,
     fullName:string,
     address:string,
     whatsAppNumber:number,
 }
+
 export interface UserProductDetails{
     productId:any,
     name:string,

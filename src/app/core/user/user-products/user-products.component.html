@@ -1,10 +1,51 @@
-<div class="row " class="d-flex">
-    <div class="col-12">
-        <div class="d-flex">
-        <h1>Products</h1>
-    </div>
-</div>
-    <div class="col-4 " >
-        <div class="logo"> <img src="./assets/Images/logo.png">
+<div class="container">
+    <div class="row">
+
+        <div class="col-12">
+            <div class="d-flex">
+                <div class="product-field">
+
+                    <h1>Products</h1>
+                    <div class="input-group mx-5">
+                        <span class="input-group-append d-flex">
+                            <input class="form-control py-2 input" type="search" placeholder="Search products" />
+
+                            <button class="btn search-btn " type="button" [routerLink]="['/shop/search']">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <div class="topImg mt-5"><img title="Online Sell and Buy" src="./assets/Images/logo.png"></div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-3 " *ngFor="let product of Products">
+                    <div class="product-card ">
+                        <div class="card" style="width: 17rem;">&nbsp;
+                            <img src={{product.imageLink}} class="card-img-top" height="230" width="288"
+                                alt="...">&nbsp;
+                            <div class="card-body">
+                                <div class="container">
+                                    <p class="product-title ">{{product.name}}</p>
+                                    <div class="row">
+                                        <div class="col-lg-9 col-md-10 col-sm-12">
+                                            <p class="price">Rs: {{product.price}}</p>
+                                        </div>
+                                        <div class="col-lg-3 col-md-2 col-sm-12">
+                                            <i class="fa fa-heart wishlist-icon"></i>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
         </div>
     </div>
+</div>

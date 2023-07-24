@@ -5,24 +5,27 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { UserComponent } from './user.component';
 
+
 const routes: Routes = [
-  {path:'',
-component:UserComponent,
-children:[
-  { 
-    path:'userproduct',
-     component:UserProductsComponent
-    },
   {
-    path:'userprofile',
-     component:UserProfileComponent
-    },
-  {
-    path:'editproduct',
-     component:EditProductComponent
-    },
-  ]
-}
+    path: '',
+    component: UserComponent,
+    children: [
+      {
+        path: 'userproduct',
+        component: UserProductsComponent
+      },
+      {
+        path:'userprofile',
+        component: UserProfileComponent
+      },
+      {
+        path: 'editproduct',
+        component: EditProductComponent
+      },
+    
+    ]
+  }
 ];
 
 @NgModule({

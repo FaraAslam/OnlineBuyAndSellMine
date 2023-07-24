@@ -37,4 +37,20 @@ export class UserService {
           })
         );
     }
+    //api/User/get-user-profile/{userId}
+   
+    userProfileData(Id: any) {
+      return this.repositoryService.get(`User/get-user-profile/` + Id, true).pipe(
+        map((response: any) => {
+          return response;
+        })
+      );
+    }
+    userProductsData() {
+      return this.repositoryService.get('Product/get-all-Products',true)
+           .pipe(map((response: any) => {
+                return response;
+           }));
+ }
+    
 }

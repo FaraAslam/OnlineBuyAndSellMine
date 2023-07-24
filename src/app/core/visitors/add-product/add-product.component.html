@@ -3,16 +3,30 @@
         <br /><br />
         <div class="row">
             <div class="col-lg-3 col-md-2 col-sm-12">
-                <label class="form-field-title">Categories</label>
-                <input class="input-field" type="text" placeholder="search" />
+                <label class="form-field-title">Category</label>
+                <select class="form-select option" formControlName="categoryId" ngModel="categoryId" (change)="GetSubCategoriesById()" required>
+                    <option [value]="Category.categoryId" *ngFor="let Category of Categories">
+                        {{ Category.name }}
+                    </option>
+                </select>
             </div>
-
-
-
+            <br />
+            <div class="row">
+            <div class="col-lg-3 col-md-2 col-sm-12 mt-4">
+                <label class="form-field-title">SubCategory</label>
+                <select class="form-select option" formControlName="SubCategoryId" ngModel="SubCategoryId" required>
+                    <option [value]="subCategory.subCategoryId" *ngFor="let subCategory of subCategories">
+                        {{ subCategory.name }}
+                </select>
+            </div>
+        </div>
+           
             <div class="row">
                 <div class="col-lg-3 col-md-2 col-sm-12 mt-4">
                     <label class="form-field-title">Product Title</label>
-                    <input class="input-field" type="text" placeholder="" />
+                    <input class="form-select form-field"  name="add-title" formControlName="Name"  placeholder="Add your product name" required />
+                    <span class="errorValdation" *ngIf="addProductForm.controls.name.touched &&
+                         addProductForm.controls.name.errors?.required">Please enter Views</span>     
                 </div>
             </div>
 
@@ -34,11 +48,18 @@
 
             <div class="col-md-4 mt-3">
                 <label class="form-label ">Location</label>
-                <input type="text" class="form-control">
+                <select type="text" class="form-control" formControlName="ProvinceName" ngModel="provinceId" change="GetCitiesById()" required>
+                <option [value]="province.provinceId" *ngFor="let province of provinces">
+                    {{ province.name }}
+                    </option>
+                </select>
             </div>
             <div class="col-md-6 mt-3">
                 <label class="form-label">City</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" formControlName="CityName">
+                <option [value]="city.name" *ngFor="let city of cities">
+                    {{city.name}}
+                </option>
             </div>
             <div class="col-md-4 mt-3">
                 <label class="form-label">Area</label>
@@ -70,5 +91,6 @@
             </div>
         </div>
         <br /> <br />
+        
     </form>
 </div>

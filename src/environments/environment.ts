@@ -6,7 +6,7 @@ export const environment = {
     production: false,
     //API call for example
    // apiUrl: 'https://localhost:7239/api'
-   apiUrl: 'https://inventstarts.com:5010/api'
+   apiUrl: 'https://theroyalblue.pk:5010/api'
   };
   
   /*

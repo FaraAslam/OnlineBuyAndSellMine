@@ -34,4 +34,11 @@ export class ProductService {
                     return response;
                }));
      } 
+     addProduct(data : any) {
+          return this.repositoryService.post('Product/add', data, true).pipe(
+               map((response: any) => {
+                 return response;
+               })
+             );
+     }
 }
