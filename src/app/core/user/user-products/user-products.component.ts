@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Products } from '../../Models/product-model';
 import { ProductService } from 'src/app/services/visitor/product.service';
-
+import { UserService } from 'src/app/services/user/user.service';
+import Swal from 'sweetalert2';
+import { UserProductDetails } from '../../Models/visitor/user-model';
 
 @Component({
   selector: 'app-user-products',
@@ -10,14 +12,13 @@ import { ProductService } from 'src/app/services/visitor/product.service';
 })
 export class UserProductsComponent {
   Products: Products[]=[];
-  constructor( private productService:ProductService){}
+  products: UserProductDetails[] = [];
+  constructor( private productService:ProductService,private userService:UserService){}
   ngOnInit(){
     this.userProductList()
   }
   userProductList() {
-    debugger  
-    this.productService.GetProductDetials(ProductService).subscribe((data) => {
-      debugger
+    this.productService.GetProductDetials(ProductService).subscribe((data) => { 
       var dt=data.data;
       for (let a = 0; a < dt.length; a++) {
         let _product: Products = {
@@ -43,6 +44,30 @@ export class UserProductsComponent {
 
     }, (error: any) => {
       console.log(error)
+    });
+  }
+  deleteUserProduct(id: any) {
+    debugger
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+      
+      if (result.isConfirmed) {
+        this.userService.userProductDelete(id).subscribe((result) => {
+          if (result) {
+            debugger
+            Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+            this.products = [];
+            this.userProductList();
+          }
+        });
+      }
     });
   }
 }

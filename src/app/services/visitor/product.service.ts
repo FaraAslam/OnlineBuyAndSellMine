@@ -35,6 +35,7 @@ export class ProductService {
                }));
      } 
      addProduct(data : any) {
+          debugger
           return this.repositoryService.post('Product/add', data, true).pipe(
                map((response: any) => {
                  return response;

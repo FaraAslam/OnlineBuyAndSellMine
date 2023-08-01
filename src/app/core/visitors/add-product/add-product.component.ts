@@ -10,7 +10,7 @@ import { SubCategoriesService } from 'src/app/services/sub-categories/sub-catego
 import { ProductService } from 'src/app/services/visitor/product.service';
 import Swal from 'sweetalert2';
 import { LocationService } from 'src/app/services/location/location.service';
-import { Provinces } from '../../Models/location model';
+import { Cities, Provinces, province } from '../../Models/location model';
 
 
 
@@ -31,8 +31,9 @@ export class AddProductComponent  implements OnInit{
   Categories:Category[]=[];
   ProductFormData: FormData = new FormData();
   errorMessage: any = "";
-  provinceId: any = '';
+ 
   cities: Provinces[] = [];
+  provinceId: any = '';
 
   constructor(private formBuilder: FormBuilder,private router:Router ,private subCategoriesService:SubCategoriesService ,
     private route:ActivatedRoute,private accountService:AccountService,private productService:ProductService,private locationService:LocationService){}
@@ -45,7 +46,7 @@ export class AddProductComponent  implements OnInit{
       }
      this.loadProvinces()
       this.loadAllCategory();
-     this. GetSubCategoriesById()
+     this. addProductModal()
     }
     loadAllCategory() {
       
@@ -67,10 +68,9 @@ export class AddProductComponent  implements OnInit{
       });
     }
   GetSubCategoriesById() {
-    debugger
     this.subCategories = []
     this.subCategoriesService.GetSubCategoriesById(this.categoryId).subscribe((data) => {
-      debugger
+   
       var dt = data.data;
       for (let a = 0; a < dt.length; a++) {
         let subCategory: SubCategory = {
@@ -91,18 +91,18 @@ export class AddProductComponent  implements OnInit{
     });
   }
     loadProvinces() {
-      
-      this.locationService.GetProvince().subscribe(
-        (dt) => {
-          this.provinces = [];
-          let data = dt.data;
-         
-          for (let a = 0; a < data.length; a++) {
+   
+        this.locationService.GetProvince().subscribe((data) =>{ 
+          let dt = data.data;
+         debugger
+          for (let a = 0; a < dt.length; a++) {
             let province: Provinces = {
-              provinceId: data[a].provinceId,
-              name: data[a].name,
+              provinceId: dt[a].provinceId,
+              name: dt[a].name,
+              cityId: dt[a].cityId,
+              provinceName: dt[a].provinceName,
               isAdded: dt[a].isAdded,
-              index:dt[a].index,
+              index: dt[a].index
             };
             this.provinces.push(province);
           }
@@ -118,17 +118,18 @@ export class AddProductComponent  implements OnInit{
     }
     GetCitiesById() {
       this.locationService.getCitiesLists(this.provinceId).subscribe(
-        (dt) => {
+        (data) => {
           this.cities = [];
-          let data = dt.data;
+          let dt = data.data;
          
-          for (let a = 0; a < data.length; a++) {
+          for (let a = 0; a < dt.length; a++) {
             let city: Provinces = {
-              cityId: data[a].cityId,
-              name: data[a].name,
-              provinceName: data[a].provinceName,
-              isAdded: true,
-              index: a + 1,
+              provinceId: dt[a].provinceId,
+              name: dt[a].name,
+              cityId: dt[a].cityId,
+              provinceName: dt[a].provinceName,
+              isAdded: dt[a].isAdded,
+              index: dt[a].index
             };
             this.cities.push(city);
           }
@@ -163,7 +164,7 @@ export class AddProductComponent  implements OnInit{
           
           this.ProductFormData.append('Location', this.addProductForm.get('CityName')?.value + ', ' +this.provinces[a].name)
         }
-      }
+      }debugger
       if (this.addProductForm.valid) {
         this.errorMessage = '';
         // this.ProductFormData.append('SubCategoryId', this.addProductForm.get('SubCategoryId')?.value)
@@ -174,8 +175,9 @@ export class AddProductComponent  implements OnInit{
         // this.ProductFormData.append('HowYearOld', this.addProductForm.get('HowYearOld')?.value)
         // this.ProductFormData.append('Price', this.addProductForm.get('Price')?.value)
         // this.ProductFormData.append('Location', this.addProductForm.get('CityName')?.value + ' ' + this.addProductForm.get('ProvinceName')?.value)
-        this.productService.addProduct(this.ProductFormData).subscribe(
+        this.productService.addProduct(this.addProductForm).subscribe(
           (dt) => {
+            debugger
             this.addProductForm.reset();
             Swal.fire('Thank you!', 'Your product is Added', 'success');
             setTimeout(() => {

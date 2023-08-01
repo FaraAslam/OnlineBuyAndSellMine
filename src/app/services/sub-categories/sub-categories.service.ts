@@ -23,7 +23,7 @@ export class SubCategoriesService {
  }
      //SubCategory
      GetSubCategoriesById(categoryId:any) {
-      return this._repositoryService.get('SubCategory/get-subCategories/' + categoryId,true)
+          return this._repositoryService.get('SubCategory/get-subCategories/'+categoryId,true)
            .pipe(map((response: any) => {
                 return response;
            }));

@@ -8,12 +8,14 @@ import { EditProductComponent } from './edit-product/edit-product.component';
 import { UserComponent } from './user.component';
 
 
+
 @NgModule({
   declarations: [
     UserProductsComponent,
     UserProfileComponent,
     EditProductComponent,
     UserComponent,
+   
 
   ],
   imports: [

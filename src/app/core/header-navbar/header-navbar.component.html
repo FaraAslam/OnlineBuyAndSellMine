@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse">
       <!-- Navbar brand -->
       <span><img class="logo-top" [routerLink]="['/']" title="Online Sell and Buy"
-          src="assets/Images/logo-w.png"></span>
+          src="assets/Images/logo copy.png"></span>
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -29,25 +29,24 @@
       </ul>
     </div>
     <!-- Icon -->
-
     <a class="navbar-link-text1" [routerLinkActive]="['ActiveRoute']">
-      <img src="./assets/Images/shop/cart-icon.png" [routerLink]="['/shop/basket']" />
+      <img src="./assets/Images/shop/cart-icon.png" *ngIf="UserId != null" [routerLink]="['/wishlist', UserId]" />
     </a>
     <i class="fa fa-commenting-o d-pointer" *ngIf="UserId != null" [routerLink]="['/chat', UserId]"
       style='font-size:36px ;margin-right: 27px; height: 37px; color: white;'></i>
+    <div class="dropdown" style="float:right;">
+      <img class="rounded-circle dropbtn" height="40" width="40" src="{{userData.profileImage}}" />
+      <div class="dropdown-content">
+        <a routerLink="/login" *ngIf="UserId != null">LogIn</a>
+        <a routerLink="/userprofile" *ngIf="UserId != null">User Profile</a>
+        <a routerLink="/" (click)="Logout()" *ngIf="UserId == null">LogOut</a>
+      </div>
+    </div>
 
-     <div class="dropdown">
-      <img class="rounded-circle dropbtn data-bs-toggle" id="dropdownMenuButton1" height="40" width="40"
-      src="./assets/Images/profileImage.png" routerLink="userprofile" />
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="/userprofile">User Profile</a></li>
-        <li><a class="dropdown-item" href="/login">LogIn</a></li>
-      </ul>
-    </div> 
- 
-
-    <span class="mt-1 to-selll-btn">To Sell</span>
-
+    <span class="mt-1 to-selll-btn d-pointer" *ngIf="UserId != null" [routerLink]="['/add-product']"><i
+      class="fa fa-upload" style="margin-right: 3px;" aria-hidden="true"></i>To Sell</span>
+  <span class="mt-1 to-selll-btn d-pointer" *ngIf="UserId == null" [routerLink]="['/add-product']" ><i class="fa fa-upload"
+      style="margin-right: 3px;" aria-hidden="true"></i>To Sell</span>
   </div>
 </nav>
 <!-- <span class="mobile-view">

@@ -6,6 +6,7 @@ import { EditProductComponent } from './edit-product/edit-product.component';
 import { UserComponent } from './user.component';
 
 
+
 const routes: Routes = [
   {
     path: '',

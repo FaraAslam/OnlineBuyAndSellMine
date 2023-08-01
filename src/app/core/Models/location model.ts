@@ -8,10 +8,10 @@ export interface Cities{
     provinceName:string;
 }
 export interface Provinces{
-    provinceId?:any,
-    cityId?:any,
+    provinceId:any,
+    cityId:any,
     name:string,
-    provinceName?:string,
-    isAdded?:boolean,
-    index?:number,
+    provinceName:string,
+    isAdded:boolean,
+    index:number,
 }

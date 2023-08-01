@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { RepositoryService } from '../repository/repository.service';
 import { map } from 'rxjs/internal/operators/map';
+import { AccountService } from '../account/account.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private router: Router, private repositoryService: RepositoryService) { }
+  constructor(private router: Router, private repositoryService: RepositoryService,private accountService:AccountService) { }
   isAdminRights():boolean{
     return true;
   }
@@ -52,5 +53,22 @@ export class UserService {
                 return response;
            }));
  }
-    
+ userProfileDate() {
+  var userId = this.accountService.getUserId();
+  return this.repositoryService
+    .get(`User/get-user-profile/` + userId, true)
+    .pipe(
+      map((response: any) => {
+        return response;
+      })
+    );
+}
+//api/Product/delete/{productId}
+userProductDelete(id: any) {
+  return this.repositoryService.delete('Product/delete/' + id).pipe(
+    map((response: any) => {
+      return response;
+    })
+  );
+}
 }
