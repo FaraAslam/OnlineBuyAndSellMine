@@ -1,5 +1,5 @@
 
-export interface RecentProducts{ 
+export interface Products{ 
   productId:any,
   createdAt:any,
   createdBy:any
@@ -35,61 +35,43 @@ export interface RecentProducts{
   price:number,
   createdAt:any,
   addedAgo:string,
-  imageLink:string
-}
-export interface NewProducts{
-  productId:any
-  createdAt:any,
-  createdBy:any,
-  modifiedAt:any,
-  modifiedBy:any,
-  addedAgo:any,
-  imageLink:any,
+  imageLink:string,
   isInUserWishList:boolean,
-  sellerName:string,
-  sellerProfileImage:any,
-  sellerAddress:any,
-  sellerCreatedAt:any,
-  sellerPhoneNumber:number,
-  subCategoryName:string,
-  categoryId:any,
   categoryName:string,
-  productStatusId:number,
-  productStatus:string,
-  subCategoryId:any,
-  name:string,
-  description:string,
-  isOld:boolean
-  howYearOld:number,
-  price:number,
-  location:any,
-  productImages:string,
+  wishListId:any
 }
-
+  export interface search{
+    name:string,
+    productId:any,
+  }
+  export interface ProductImage {
+    orderNumber: string;
+    imageLink: string;
+    productMediaId: string;
+  }
   export interface ProductDetails{
     productId:any,
-    createdAt:any,
-    createdBy:any,
-    modifiedAt:any,
-    modifiedBy:any,
-    addedAgo:string,
-    isInUserWishList:boolean,
     name:string,
     description:string,
+    howYearOld:number,
+    price:number,
+    createdAt:any,
+    isOld:boolean,
     sellerName: string,
     sellerPhoneNumber:string,
+    sellerPartnership : any,
+    condition:string,
     sellerAddress:string,
     categoryId:any,
-    sellerProfileImage:string,
+    addedAgo:string,
+    createdBy:string,
     imageLink:string,
-    sellerCreatedAt:string,
-    subCategoryName:string,
-    categoryName:string,
-    productStatusId:number,
-    productStatus:string,
-    subCategoryId:any,
-    price:number,
+    isInUserWishList:boolean,
+    imageLinks:ProductImage[],
+    location?:string,
+    sellerProfileImage?: string,
+    subCategoryId:string,
+    whatsAppNumber:number,
   }
-  
   
  

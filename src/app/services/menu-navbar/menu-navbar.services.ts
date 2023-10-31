@@ -18,5 +18,12 @@ export class MenuNavbarService {
                     return response;
                }));
      }
+      //SubCategory
+      GetSubCategoriesById(categoryId:any) {
+          return this.repositoryService.get('SubCategory/get-subCategories/' + categoryId,true)
+               .pipe(map((response: any) => {
+                    return response;
+               }));
+     }
     
 }

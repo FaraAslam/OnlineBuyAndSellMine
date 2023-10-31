@@ -13,16 +13,16 @@ export class SellerProfileComponent {
   constructor(private userService: UserService,private router:Router, private route: ActivatedRoute) { }
   userList: UserList ={
     noOfProducts: 0,
-    userId: undefined,
+    userId: '',
+    firstName: '',
+    lastName: '',
     email: '',
     userName: '',
     phoneNumber: '',
     profileImage: '',
     fullName: '',
     address: '',
-    whatsAppNumber: 0,
-    firstName: '',
-    lastName: ''
+    whatsAppNumber: 0
   };
   UserProductDetails: UserProductDetails[] = [];
   HowMuchProduct:number;
@@ -75,11 +75,23 @@ export class SellerProfileComponent {
             ? 'assets/Images/RecentProducts.png'
             : dt[a].imageLink,
           createdBy: dt[a].createdBy,
-          modifiedAt: '',
-          profileImage: dt[a].profileImage,
-          modifiedBy: undefined,
-          categoryId: undefined,
-          isApproved: 0
+          modifiedAt: dt[a].modifiedAt,
+          modifiedBy: dt[a].modifiedBy,
+          isInUserWishList: dt[a].isInUserWishList,
+          sellerName: dt[a].sellerName,
+          sellerProfileImage:dt[a] .sellerProfileImage,
+          sellerAddress: dt[a].sellerAddress,
+          sellerCreatedAt: dt[a].sellerCreatedAt,
+          sellerPhoneNumber:dt[a].sellerPhoneNumber,
+          sellerWhatsAppNumber: dt[a].sellerWhatsAppNumber,
+          subCategoryName:dt[a].subCategoryName,
+          categoryId: dt[a].categoryId,
+          categoryName:dt[a].categoryName,
+          productStatusId: dt[a].productStatusId,
+          productStatus: dt[a].productStatus,
+          subCategoryId: dt[a].subCategoryId,
+          location: dt[a].location,
+          productImages:dt[a].productImages
         };
         
         this.UserProductDetails.push(UserProductDetail);

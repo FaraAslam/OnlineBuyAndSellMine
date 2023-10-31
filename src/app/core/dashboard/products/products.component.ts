@@ -10,7 +10,8 @@ import { Products } from '../../Models/product-model';
 import { UserList } from '../../Models/visitor/user-model';
 import { ProductService } from 'src/app/services/visitor/product.service';
 import { strings } from '@material/menu';
-
+import { Product } from '../../Models/visitor/home-model';
+import Swal from 'sweetalert2';
 
 // export interface PeriodicElement {
 //   image: string;
@@ -40,14 +41,16 @@ import { strings } from '@material/menu';
 })
 export class ProductsComponent implements OnInit {
 
-  displayedColumns: string[] = [' image', ' name', 'price', 'category', 'condition', 'seller'];
+  displayedColumns: string[] = [' image', ' name', 'price', 'category', 'condition','status', 'seller'];
   dataSource: MatTableDataSource<Products>;
   // dataSource = ELEMENT_DATA;
   selectValue: boolean | null;
   user: User;
   Products: Products[] = [];
   ProductService: any;
-
+  isOld:boolean | null=false;
+  products: Product[]= [];
+  selectSearchStatus='Select..'
 
   valueChange(data: any) {
     if (data == 'new')
@@ -59,16 +62,28 @@ export class ProductsComponent implements OnInit {
       this.selectValue = null;
     }
   }
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService,private accountService:AccountService,private router:Router) {
    
   }
   ngOnInit() {
 
-    this.loadProductList()
+    this.loadProductList(null,null)
   }
 
-  loadProductList() {
-    debugger  
+  loadProductList(searchValue:any,selectSearchStatus:any):void {  
+      this.products= []
+      if (selectSearchStatus == "false") {
+        this.isOld = false;
+      }
+     else if (selectSearchStatus == "true") {
+        this.isOld = true;
+      }
+      else{
+        this.isOld = null;
+      }
+      if(searchValue == ''){
+        searchValue= null
+      }
     this.productService.GetProductDetials(ProductService).subscribe((data) => {
       debugger
       var dt=data.data;
@@ -89,14 +104,31 @@ export class ProductsComponent implements OnInit {
           location: dt[a].location,
           isInUserWishList: dt[a].isInUserWishList,
           name: dt[a].name,
-          productImages: ''
+          productImages: dt[a].productImages
         }
         this.Products.push(_product);
       }
 
       this.dataSource = new MatTableDataSource(this.Products);
-    }, (error: any) => {
+    }, (error) => {  
+      if (error.status == 401) {
+        this.accountService.doLogout();
+        this.router.navigateByUrl('/login');
+      }
       console.log(error)
-    });
+      });
+  }
+  UpdateProductStatus(productId: any,data: any) {
+    this.productService
+      .updateProductStatus(productId,data)
+      .subscribe((result) => {
+        this.selectSearchStatus='ChangeStatus';
+        if (result) {
+          Swal.fire('Thank you!', 'Your product is Updated', 'success');
+          setTimeout(() => {
+            this.loadProductList(null,null);
+          },1000);
+        }
+      });
   }
 }

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Products } from '../../Models/product-model';
-import { ProductService } from 'src/app/services/visitor/product.service';
 import { UserService } from 'src/app/services/user/user.service';
 import Swal from 'sweetalert2';
-import { UserProductDetails } from '../../Models/visitor/user-model';
+import {  UserList, UserProductDetails } from '../../Models/visitor/user-model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AccountService } from 'src/app/services/account/account.service';
 
 @Component({
   selector: 'app-user-products',
@@ -11,43 +11,70 @@ import { UserProductDetails } from '../../Models/visitor/user-model';
   styleUrls: ['./user-products.component.css']
 })
 export class UserProductsComponent {
-  Products: Products[]=[];
+  
   products: UserProductDetails[] = [];
-  constructor( private productService:ProductService,private userService:UserService){}
-  ngOnInit(){
-    this.userProductList()
+ 
+  userId: any='';
+
+ 
+
+
+  constructor( private userService:UserService,private accountService:AccountService,private router:Router){}
+ 
+  ngOnInit():void{
+    this. getProducts()
+    
   }
-  userProductList() {
-    this.productService.GetProductDetials(ProductService).subscribe((data) => { 
-      var dt=data.data;
-      for (let a = 0; a < dt.length; a++) {
-        let _product: Products = {
-          productId: dt[a].productId,
+  getProducts() {
+    debugger
+        this.userService.userProductData().subscribe((result) => {
+          debugger
+          var dt = result.data;
+          for (let a = 0; a < dt.length; a++) {
+            let product: UserProductDetails = {
+              productId: dt[a].productId,
+          name: dt[a].name,
+          description: dt[a].description,
+          howYearOld: dt[a].howYearOld,
+          price: dt[a].price,
           createdAt: dt[a].createdAt,
+          addedAgo: dt[a].addedAgo,
+          isOld: dt[a].isOld,
+          imageLink: dt[a].imageLink == null
+            ? 'assets/Images/RecentProducts.png'
+            : dt[a].imageLink,
           createdBy: dt[a].createdBy,
           modifiedAt: dt[a].modifiedAt,
           modifiedBy: dt[a].modifiedBy,
-          addedAgo: dt[a].addedAgo,
-          imageLink: dt[a].imageLink ,
-          subCategoryId: dt[a].subCategoryId,
-          description: dt[a].description,
-          isOld: dt[a].isOld,
-          howYearOld: dt[a].howYearOld,
-          price: dt[a].price,
-          location: dt[a].location,
           isInUserWishList: dt[a].isInUserWishList,
-          name: dt[a].name,
-          productImages: ''
+          sellerName: dt[a].sellerName,
+          sellerProfileImage:dt[a] .sellerProfileImage,
+          sellerAddress: dt[a].sellerAddress,
+          sellerCreatedAt: dt[a].sellerCreatedAt,
+          sellerPhoneNumber:dt[a].sellerPhoneNumber,
+          sellerWhatsAppNumber: dt[a].sellerWhatsAppNumber,
+          subCategoryName:dt[a].subCategoryName,
+          categoryId: dt[a].categoryId,
+          categoryName:dt[a].categoryName,
+          productStatusId: dt[a].productStatusId,
+          productStatus: dt[a].productStatus,
+          subCategoryId: dt[a].subCategoryId,
+          location: dt[a].location,
+          productImages:dt[a].productImages
+            };
+          
+          this.products.push(product);
         }
-        this.Products.push(_product);
       }
-
-    }, (error: any) => {
-      console.log(error)
-    });
-  }
+      , (error) => {
+        if (error.status == 401) {
+          this.accountService.doLogout();
+          this.router.navigateByUrl('/');
+        }
+        console.log("Error in getAssets: " + error.message);
+      });
+      }
   deleteUserProduct(id: any) {
-    debugger
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -61,13 +88,15 @@ export class UserProductsComponent {
       if (result.isConfirmed) {
         this.userService.userProductDelete(id).subscribe((result) => {
           if (result) {
-            debugger
             Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
             this.products = [];
-            this.userProductList();
+            this. getProducts();
           }
         });
       }
     });
+  }
+  addProduct(){
+this.router.navigate(['add-product'])
   }
 }

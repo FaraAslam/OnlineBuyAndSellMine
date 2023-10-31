@@ -34,5 +34,11 @@ export class SubCategoriesService {
                return response;
           }));
 }
+GetSubCategoryProducts(subCategoryId : any, data: object) {
+     return this._repositoryService.post('Product/get-subCategory-Products-by-search-filter/'+subCategoryId, data, false)
+          .pipe(map((response: any) => {
+               return response;
+          }));
+}
   }
 

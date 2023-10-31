@@ -26,15 +26,16 @@ export class AddProductComponent  implements OnInit{
   subCategories: subCategory[]=[];
   categoryId:any = "";
   UserId: any = "";
+  addProductLoading: boolean = false;
   categoryName: string = "";
   IsCurrentUser: boolean = false;
   Categories:Category[]=[];
   ProductFormData: FormData = new FormData();
   errorMessage: any = "";
- 
+  addProductImages: any[] = [];
   cities: Provinces[] = [];
   provinceId: any = '';
-
+  selectedFiles?: FileList;
   constructor(private formBuilder: FormBuilder,private router:Router ,private subCategoriesService:SubCategoriesService ,
     private route:ActivatedRoute,private accountService:AccountService,private productService:ProductService,private locationService:LocationService){}
  
@@ -75,13 +76,14 @@ export class AddProductComponent  implements OnInit{
       for (let a = 0; a < dt.length; a++) {
         let subCategory: SubCategory = {
           name: dt[a].name,
-          catagoryName: dt[a].catagoryName,
+          categoryName: dt[a].catagoryName,
           categoryId: dt[a].categoryId,
-          subCategoryId: dt[a].subCategoryId
+          subCategoryId: dt[a].subCategoryId,
+        
         }
         this.subCategories.push(subCategory);
       }
-      this.categoryName = this.subCategories[0].catagoryName
+      this.categoryName = this.subCategories[0].categoryName
 
     }, (error) => {
       if (error.status == 401) {
@@ -94,7 +96,7 @@ export class AddProductComponent  implements OnInit{
    
         this.locationService.GetProvince().subscribe((data) =>{ 
           let dt = data.data;
-         debugger
+        
           for (let a = 0; a < dt.length; a++) {
             let province: Provinces = {
               provinceId: dt[a].provinceId,
@@ -159,29 +161,30 @@ export class AddProductComponent  implements OnInit{
       });
     }
     onSubmitAddProduct() {
+      debugger
       for (let a = 0; a < this.provinces.length; a++){
         if(this.addProductForm.get('ProvinceName')?.value == this.provinces[a].provinceId){
           
           this.ProductFormData.append('Location', this.addProductForm.get('CityName')?.value + ', ' +this.provinces[a].name)
         }
-      }debugger
+      }
       if (this.addProductForm.valid) {
         this.errorMessage = '';
-        // this.ProductFormData.append('SubCategoryId', this.addProductForm.get('SubCategoryId')?.value)
-        // this.ProductFormData.append('Name', this.addProductForm.get('Name')?.value)
-        // this.ProductFormData.append('Description', this.addProductForm.get('Description')?.value)
-        // this.ProductFormData.append('IsOld', this.addProductForm.get('IsOld')?.value)
-        // this.ProductFormData.append('Target', this.addProductForm.get('Target')?.value)
-        // this.ProductFormData.append('HowYearOld', this.addProductForm.get('HowYearOld')?.value)
-        // this.ProductFormData.append('Price', this.addProductForm.get('Price')?.value)
-        // this.ProductFormData.append('Location', this.addProductForm.get('CityName')?.value + ' ' + this.addProductForm.get('ProvinceName')?.value)
-        this.productService.addProduct(this.addProductForm).subscribe(
+        this.ProductFormData.append('SubCategoryId', this.addProductForm.get('SubCategoryId')?.value)
+        this.ProductFormData.append('Name', this.addProductForm.get('Name')?.value)
+        this.ProductFormData.append('Description', this.addProductForm.get('Description')?.value)
+        this.ProductFormData.append('IsOld', this.addProductForm.get('IsOld')?.value)
+        this.ProductFormData.append('Target', this.addProductForm.get('Target')?.value)
+        this.ProductFormData.append('HowYearOld', this.addProductForm.get('HowYearOld')?.value)
+        this.ProductFormData.append('Price', this.addProductForm.get('Price')?.value)
+        this.ProductFormData.append('Location', this.addProductForm.get('CityName')?.value + ' ' + this.addProductForm.get('ProvinceName')?.value)
+        this.productService.addProduct(this.ProductFormData).subscribe(
           (dt) => {
-            debugger
+            
             this.addProductForm.reset();
             Swal.fire('Thank you!', 'Your product is Added', 'success');
             setTimeout(() => {
-              this.router.navigate(['product']);
+              this.router.navigate(['userproduct']);
             }, 1000);
           },
           (error) => {
@@ -197,5 +200,38 @@ export class AddProductComponent  implements OnInit{
       }
 
   }
+  onAddProductImage(event: any) {
+    if (event.target.files.length > 0 && event.target.files.length < 8) {
+      this.selectedFiles = event.target.files;
+      for (var a = 0; a < event.target.files.length; a++) {
+        const reader = new FileReader();
+        const file = event.target.files[a];
+        this.ProductFormData.append('ProductImages', file, file.name);
+        reader.readAsDataURL(file);
+        // reader.readAsDataURL(this.selectedFiles[a]);
+        reader.onload = (_event) => {
+          if (this.addProductImages.length < 8) {
+            this.addProductImages.push(reader.result);
+          }
+          else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: "Sorry, You have already 8 image's save.",
+            })
+          }
+        }
+      }
+    }
 
+  }
+  removeImg(data: string) {
+    let index = this.addProductImages.lastIndexOf(data);
+    // let ProductIndex = this.addProductImages.lastIndexOf(this.addProductImages);
+    delete this.addProductImages[index]
+      this.addProductImages.splice(index,1);
+      this.onAddProductImage(this.addProductImages)
+  console.log(this.addProductImages);
+  
+}
 }

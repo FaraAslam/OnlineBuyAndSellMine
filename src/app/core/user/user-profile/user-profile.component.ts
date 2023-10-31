@@ -12,16 +12,16 @@ import { AccountService } from 'src/app/services/account/account.service';
 export class UserProfileComponent {
   userList: UserList ={
     noOfProducts: 0,
-    userId: undefined,
+    userId: '',
+    firstName: '',
+    lastName: '',
     email: '',
     userName: '',
     phoneNumber: '',
     profileImage: '',
     fullName: '',
     address: '',
-    whatsAppNumber: 0,
-    firstName: '',
-    lastName: ''
+    whatsAppNumber: 0
   };
   userId: any;
  

@@ -16,17 +16,24 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-md 4 col-sm-12">
             <h6 class="products-heading">{{categoryName}}</h6>
         </div>
         <div class="product-card" *ngFor="let categoryProducts of CategoryProducts">
             <div class="card" style="width: 18rem;">
-                <img src={{categoryProducts.imageLink}} class="card-img-top" height="230" width="288" alt="...">
+                <img src={{categoryProducts.imageLink}}  [routerLink]="['/product-details'
+                ,categoryProducts.productId]"  class="card-img-top" height="230" width="288" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">{{categoryProducts.name}}</h5>
+                    <h5 class="card-title"  [routerLink]="['/product-details',categoryProducts.productId]" >
+                        {{categoryProducts.name}}</h5>
                     <p class="price">Rs:{{categoryProducts.price}} </p>
-                    <i class="fa fa-heart wishlist-icon"></i>
-                    <i class="fa fa-eye eye-icon"></i>
+                    <div class="col-lg-3 col-md-3 col-sm-12">
+                        <span  *ngIf="categoryProducts.isInUserWishList == true">  <i class="fa fa-heart wishlist-icon " style="color: #26A5B9;"></i></span>
+                        <span  *ngIf="categoryProducts.isInUserWishList != true ">  <i class="fa fa-heart-o wishlist-icon " ></i></span>
+                        <i class="fa fa-eye icon " (click)="productDetail(categoryProducts.imageLink,categoryProducts.description,categoryProducts.productId)"></i>
+                        
+                        
+                    </div>
                 </div>
             </div>
         </div>

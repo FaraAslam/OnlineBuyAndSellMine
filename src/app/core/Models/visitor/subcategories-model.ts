@@ -1,10 +1,11 @@
 export interface subCategory{
-    subCategoryId:any,
+    categoryId?:any,
+    subCategoryId?:any,
     name:string,
-    categoryId:any;
-    catagoryName:string,
+    categoryName:string,
+    isAdded?:boolean,
+    index?:number,
 }
-
 
 
 

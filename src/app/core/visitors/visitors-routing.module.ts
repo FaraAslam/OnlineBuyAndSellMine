@@ -6,6 +6,10 @@ import { HomeComponent } from './home/home.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { VisitorsComponent } from './visitors.component';
 import { SellerProfileComponent } from './seller-profile/seller-profile.component';
+import { AdminGuard } from 'src/app/services/auth-gaard.guard';
+import { CategoriesComponent } from './categories/categories.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { ChatComponent } from './chat/chat.component';
 
 const routes: Routes = [
   {
@@ -27,18 +31,37 @@ const routes: Routes = [
         component: ProductDetailsComponent,
       },
       {
-        path:'category-products',
+        path:'category-products/:categoryId/:subCategory',
         component: CategoryProductsComponent,
       },
       {
+        canActivate: [AdminGuard],
         path:'add-product',
-        component: AddProductComponent,    
+        component: AddProductComponent
       },
       {
         path:'seller/:userId',
         component: SellerProfileComponent,    
       },
-     
+     {
+      path:'categories',
+      component:CategoriesComponent,
+     },
+     {
+      canActivate: [AdminGuard],
+      path:'wishlist/:userId',
+      component: WishlistComponent
+    },
+     {
+      canActivate: [AdminGuard],
+      path:'chat/:userId',
+      component:ChatComponent
+    },
+    {
+      canActivate: [AdminGuard],
+      path:'chat',
+      component:ChatComponent
+    },
     ],
   },
 ];

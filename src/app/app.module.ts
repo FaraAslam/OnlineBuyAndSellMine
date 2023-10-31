@@ -21,21 +21,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from './core/footer/footer.component';
 import { HeaderNavbarComponent } from './core/header-navbar/header-navbar.component';
 import { MenuNavbarComponent } from './core/menu-navbar/menu-navbar.component';
-import { UserProductComponent } from './user-product/user-product.component';
-import { ProductsComponent } from './user-product/products/products.component';
-import { UserProfileComponent } from './user-product/user-profile/user-profile.component';
-import { EditProductComponent } from './user-product/edit-product/edit-product.component';
 import { SubCategoriesComponent } from './core/dashboard/sub-categories/sub-categories.component';
 import { CityComponent } from './core/dashboard/city/city.component';
 import { ProvinceComponent } from './core/dashboard/province/province.component';
 import { SellerProfileComponent } from './core/visitors/seller-profile/seller-profile.component';
 import { UserModule } from './core/user/user.module';
-
-
-
-
-
-
 
 
 @NgModule({
@@ -49,16 +39,11 @@ import { UserModule } from './core/user/user.module';
     FooterComponent,
     HeaderNavbarComponent,
     MenuNavbarComponent,
-    UserProductComponent,
-    ProductsComponent,
-    UserProfileComponent,
-    EditProductComponent,
     SubCategoriesComponent,
     ProvinceComponent,
     CityComponent,
-    SellerProfileComponent,
-
-    
+    SellerProfileComponent, 
+   
   ],
   imports: [
     BrowserModule,
@@ -72,9 +57,10 @@ import { UserModule } from './core/user/user.module';
     HttpClientModule,
     FontAwesomeModule,
     MatIconModule, 
-    UserModule,
+   UserModule
   ],
   providers: [AdminGuard, UserService],
   bootstrap: [AppComponent],
+ 
 })
 export class AppModule { }

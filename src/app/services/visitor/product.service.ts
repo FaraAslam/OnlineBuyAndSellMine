@@ -13,6 +13,12 @@ export class ProductService {
      isAdminRights():boolean{
           return true;
         } 
+        GetAllProduct() {
+          return this.repositoryService.get('Product/get-all-Products/',false)
+               .pipe(map((response: any) => {
+                    return response;
+               }));
+     }
  //api/Product/get-all-Products 
      GetProductDetials(productId : any) {
           return this.repositoryService.get('Product/get-all-Products',true)
@@ -36,7 +42,31 @@ export class ProductService {
      } 
      addProduct(data : any) {
           debugger
-          return this.repositoryService.post('Product/add', data, true).pipe(
+          return this.repositoryService.postWithFile('Product/add', data).pipe(
+               map((response: any) => {
+                 return response;
+               })
+             );
+     }
+       //update-product-status
+       //Product/update-product-status/{productId}
+       updateProductStatus( productId: any,productStatusId: any) {
+          debugger
+          return this.repositoryService.put('Product/update-product-status/'+ productId+'?productStatusId='+productStatusId,{}).pipe(
+            map((response: any) => {
+              return response;
+            })
+          );
+        }
+        removeProductImage(image: any) {
+          return this.repositoryService.delete('Product/delete-product-image/' + image).pipe(
+            map((response: any) => {
+              return response;
+            })
+          );
+        }
+        addProductImages(id:any,data:any){
+          return this.repositoryService.postWithFile('Product/add-product-images/'+id,data).pipe(
                map((response: any) => {
                  return response;
                })

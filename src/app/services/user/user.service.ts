@@ -29,6 +29,7 @@ export class UserService {
         })
       );
     }
+    //api/Product/get-user-Products/{userId}
     sellerProductsData(id: any) {
       return this.repositoryService
         .get('Product/get-user-Products/' + id, false)
@@ -42,6 +43,13 @@ export class UserService {
    
     userProfileData(Id: any) {
       return this.repositoryService.get(`User/get-user-profile/` + Id, true).pipe(
+        map((response: any) => {
+          return response;
+        })
+      );
+    }
+    userProductUpdate(_id: any, _data: any) {
+      return this.repositoryService.put('Product/update/'+_id, _data).pipe(
         map((response: any) => {
           return response;
         })
@@ -70,5 +78,15 @@ userProductDelete(id: any) {
       return response;
     })
   );
+}
+//api/Product/get-user-Products
+userProductData() {
+  return this.repositoryService
+    .get('Product/get-user-Products/' , true)
+    .pipe(
+      map((response: any) => {
+        return response;
+      })
+    );
 }
 }

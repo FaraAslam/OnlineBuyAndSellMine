@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HomeService } from 'src/app/services/visitor/home.service';
 import { MatTableDataSource } from '@angular/material/table';
-import {NewProducts, Product ,ProductDetails, RecentProducts} from '../../Models/visitor/home-model';
+import { Products} from '../../Models/visitor/home-model';
 
 @Component({
   selector: 'app-home',
@@ -11,11 +11,11 @@ import {NewProducts, Product ,ProductDetails, RecentProducts} from '../../Models
 })
 export class HomeComponent implements OnInit {
   displayedColumns: string[] = ['name'];
-  dataSource: MatTableDataSource<ProductDetails>;
+  dataSource: MatTableDataSource<Products>;
  
-  ProductDetails: ProductDetails[] =[];
-  RecentProducts:RecentProducts[]=[];
-  NewProducts: NewProducts[]=[];
+  ProductDetails: Products[] =[];
+  RecentProducts:Products[]=[];
+  NewProducts: Products[]=[];
 constructor(private homeService:HomeService){}
 ngOnInit(){
   this.loadUsedProducts()
@@ -28,7 +28,7 @@ ngOnInit(){
    
     var dt = data.data;
     for (let a = 0; a < dt.length; a++) {
-      let RecentProducts: RecentProducts = {
+      let RecentProducts: Products = {
         name: dt[a].name,
         productId: dt[a].productId,
         createdAt: dt[a].createdAt,
@@ -69,7 +69,7 @@ ngOnInit(){
     debugger
     var dt = data.data;
     for (let a = 0; a < dt.length; a++) {
-      let NewProducts: NewProducts = {
+      let NewProducts: Products = {
         name: dt[a].name,
         productId: dt[a].productId,
         createdAt: dt[a].createdAt,
@@ -110,13 +110,11 @@ ngOnInit(){
    
     var dt = data.data;
     for (let a = 0; a < dt.length; a++) {
-      let ProductDetails: ProductDetails = {
+      let ProductDetails: Products = {
         name: dt[a].name,
         productId: dt[a].productId,
         createdAt: dt[a].createdAt,
         createdBy: dt[a].createdBy,
-        modifiedAt: dt[a].modifiedAt,
-        modifiedBy: dt[a].modifiedBy,
         addedAgo: dt[a].addedAgo,
         isInUserWishList: dt[a].isInUserWishList,
         description: dt[a].description,
@@ -126,17 +124,23 @@ ngOnInit(){
         categoryId: dt[a].categoryId,
         sellerProfileImage: dt[a].sellerProfileImage,
         imageLink: dt[a].imageLink,
+        howYearOld: dt[0].howYearOld,
+        price: dt[0].price,
+        modifiedAt: dt[a].modifiedAt,
+        modifiedBy: dt[a].modifiedBy,
         sellerCreatedAt: dt[a].sellerCreatedAt,
         subCategoryName: dt[a].subCategoryName,
         categoryName: dt[a].categoryName,
         productStatusId: dt[a].productStatusId,
         productStatus: dt[a].productStatus,
         subCategoryId: dt[a].subCategoryId,
-        price:dt[a].price,
+        isOld: dt[a].isOld,
+        location: dt[a].location,
+        productImages: dt[a].productImages
       }
       this.ProductDetails.push(ProductDetails);
     }
-    this.dataSource = new MatTableDataSource(this.ProductDetails);
+   // this.dataSource = new MatTableDataSource(this.ProductDetails);
   }, (error) => {
     console.log(error)
   });

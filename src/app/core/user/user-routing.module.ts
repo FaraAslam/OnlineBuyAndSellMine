@@ -21,7 +21,7 @@ const routes: Routes = [
         component: UserProfileComponent
       },
       {
-        path: 'editproduct',
+        path: 'editproduct/:Id',
         component: EditProductComponent
       },
     

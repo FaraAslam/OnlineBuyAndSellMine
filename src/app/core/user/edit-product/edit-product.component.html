@@ -1,76 +1,92 @@
-<div class="container">
-    <div class="row">
-        <div class="col-9">
-            <div class="d-flex">
-                    <h1>Edit Your Product</h1>
-                </div>
-        </div>
-        <div class="col-3">
-                <div class="topImg "><img title="Online Sell and Buy" src="./assets/Images/logo.png"></div>
-            </div>
-       
-        <div class="row mt-5">
-            <div class="col-lg-3 col-md-2 col-sm-12">
-                <label class="form-field-title ">Product Title</label>
-                <input class="input-field " type="text" placeholder="" />
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-lg-3 col-md-2 col-sm-12 mt-3">
-                <label class="form-field-title">Description</label>
-                <input class="input-field1 mt-2" type="text" placeholder="" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-2 mt-3 ">
-                <label class="form-field-title">Images</label>
-                <div class="card mt-2" style="width: 7rem;">
-                    <img src="./assets/Images/RecentProducts.png" height="105px" class="card-img-top" alt="...">
-                </div>
-                <div class="col-4">
-                    <br />
-                    <div class="upload-image">
-                        <i class="fa fa-cloud-upload img-upload-icon mt-3"><br />
-                            <p>upload</p>
-                        </i>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-5 mt-3">
-            <label class="form-label ">Category</label>
-            <input type="text" class="form-control">
-        </div>
-        <div class="col-md-6 mt-3">
-            <label class="form-label">Price</label>
-            <input type="text" class="form-control">
-        </div>
-        <div class="row">
-            <div class="col-2">
-                <label class="form-label mt-3">Condition</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                        value="option1">
-                    <label class="form-check-label" for="inlineRadio1">New</label>
-                </div>
-                <div class="col-2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineRadio2">Old</label>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="button">
-                        <button type="submit" class="btn">Save Change</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="row">
+    <div class="col-md-6 col-sm-12 p-2">
+      <!-- head -->
+      <div class="d-flex">
+  
+        <h1 class="mt-5 mx-5">Edit Your Product</h1>
+      </div>
+      <div class="col-md-6 mt-5 mx-5">
+        <div class="topImg"><img title="Online Sell and Buy" src="./assets/Images/logo copy 2.png"></div>
+      </div>
     </div>
- </div>
+    <div class="edit-product-form col-md-12 col-sm-12">
+      <form action="" #upDateProduct="ngForm" method="post" (ngSubmit)="UpdateUserProduct(upDateProduct.value)">
+        <div class="body form-group ">
+          <div class="mt-3  category">
+            <div class="col-sm-12 col-md-8">
+              <label class="input-title mt-2"><b>Category</b></label><br>
+              <select class="input-feild select mt-2" for="inputGroupSelect01" name="subCategoryId"
+                [(ngModel)]="Product.categoryId" (change)="GetSubCategoriesById(Product.categoryId)">
+                <option selected [value]="Category.categoryId" *ngFor="let Category of Categories">{{Category.name}}
+                </option>
+              </select>
+            </div>
+            <div class="col-sm-12 col-md-8">
+              <label class="input-title mx-md-2 mt-2"><b>SubCategory</b></label><br>
+                <select class="input-feild select mt-2 mx-4" for="inputGroupSelect01" name="SubCategoryId"
+                [(ngModel)]="Product.subCategoryId">
+                <option selected [value]="subCategory.subCategoryId" *ngFor="let subCategory of subCategories">{{subCategory.name}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class=" col-sm-12 col-md-12">
+            <label class="input-title mt-2"><b>Product Title</b></label><br>
+            <input [(ngModel)]="Product.name" class="input-feild mt-2" type="text" name="name" placeholder="Title">
+          </div>
+          <!-- <div class="mt-3  col-md-12">
+            <label class="input-title "><b>Description</b></label><br>
+            <div class="mt-3 col-md-12 col-sm-12">
+              <angular-editor  class="input-feild dis"   [(ngModel)]="Product.description"  name="description"></angular-editor>
+            </div> -->
+            <div class=" col-md-12 col-sm-12 mt-4">
+              <label class="input-title"><b>Description</b></label>
+              <input class="input-feild dis mt-2"   [(ngModel)]="Product.description"  name="description" />
+          </div>
+          
+          <div class="mt-3  col-12">
+            <label class="input-title "><b>Images</b></label><br>
+           <div class="images mt-2">
+              <div *ngFor="let img of productImages">
+               
+                <img class="UploadImg mt-3 mx-2"  src="{{img.imageLink}}" (click)="openImg(img.imageLink)">
+                <i class="image-remove fa fa-trash" aria-hidden="true"(click)="removeImg(img.productMediaId)"></i>
+              </div>
+           <div class="UploadImg " style="text-align: center;background-color: #D9D9D9;cursor:pointer"  (click)="selectFile.click()" >
+            <input style="display: none" type="file" (change)="onFileUpload($event)" #selectFile required>
+            <i class="fa fa-upload d-block mt-3" aria-hidden="true" style="font-size: 30px;"></i>
+            <p style="font-weight: 500;font-size: 15px;line-height: 36px">Upload</p>
+          </div>
+            </div>
+          </div>
+          <div class="mt-3 col-12">
+              <label class="input-title mt-2"><b>Location</b></label><br>
+              <input [(ngModel)]="Product.location" class="input-feild mt-2" type="text" name="location" placeholder="Location" required>
+          </div>
+          <div class="mt-3 col-12">
+              <label class="input-title mt-2 "><b>Price</b></label><br>
+              <input [(ngModel)]="Product.price" class="input-feild mt-2" type="text" name="price"
+                placeholder="Price" required>
+          </div>
+          <div class="col-12">
+            <div class="mt-2 col-12">
+              <label class="input-title mt-2"><b>Condition</b></label><br>
+              <input [(ngModel)]="Product.isOld" style="width:20px;height: 20px;" type="radio" name="isOld"
+                [value]='false' required>&nbsp;<b> New</b>
+              &nbsp;&nbsp;
+              <input [(ngModel)]="Product.isOld" style="width:20px;height: 20px;" type="radio" name="isOld"
+                [value]='true' required> &nbsp;<b> Old</b>
+            </div>
+              <div class="col-12"  *ngIf="Product.isOld == true">
+               <label class="input-title mt-2"> <b>How Year Old</b></label><br>
+              <input type="number"  [(ngModel)]="Product.howYearOld" min="0"   class="input-feild" name="howYearOld" placeholder="how Year Old" required>
+          </div>
+          </div>
+          <div class="btn2 mt-3 d-flex col-12">
+            <button class="btn mx-2 p-2 bg-secondary" [routerLink]="['/product']">Cancel</button>
+            <button class="btn mx-2 p-2" [disabled]="upDateProduct.invalid">Save Change</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

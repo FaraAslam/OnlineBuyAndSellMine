@@ -1,88 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 h1 {
-font-weight: 500px;
+    font-weight: 500px;
     margin-left: 70px;
-    margin-top: 60px;
+    margin-top: 80px;
     font-weight: 500;
     color: #000000;
-    width: 200px;
+    width: 500px;
 }
 
-.input-field {
-    margin-left: 180px;
-    width: 754px;
-    height: 50px;
-    background: #FFFFFF;
+.edit-product-form {
+margin-left: 20%;
+}
+
+.topImg {
+    position: absolute;
+    width: 221px;
+    height: 90px;
+    left: 1174px;
+    top: 40px;
+}
+
+.input-title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+}
+
+.category {
+    display: flex;
+}
+
+.input-feild {
+    padding: 5px;
+    height: 40px;
+    border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-
+    width: 140%;
+    outline: none;
 }
-.input-field1 {
-    width: 756px;
-    height: 177px;
-    margin-left: 180px;
-    background: #FFFFFF;
+
+.input-Location {
+    padding: 5px;
+    height: 40px;
+    border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    
-}
-.form-field-title {
-    margin-left: 180px;
-    font-weight: 500;
-    font-size: 16px;
-    color: #000000;
-    margin-top: -200;
-    width: 140px;
+    width: 100%;
+    outline: none;
 }
 
-  .topImg{
-margin-left: 70%;
-margin-top: 50px;
-  }
-  .card{
-    margin-left:180px ;
-  }
-  .upload-image {
-    width: 108px;
-    height: 108px;
-    margin-left: 300px;
-    background: #D9D9D9;
-    border-radius: 10px;
-    margin-top: -130px;
+.select {
+    width: 100%;
 }
 
-.img-upload-icon {
-    margin-left: 40px;
-    width: 20px;
-    height: 20px;
-    background: #D9D9D9;
-   padding-top: 25px;
+.select option {
+    width: 50%;
 }
-.form-label{
-    margin-left: 180px;
-font-weight: 500;
-font-size: 17px;
-color: #000000;
 
+.selectlocation {
+    width: 100%;
 }
-.form-control{
-    width: 350px;
-    margin-left: 180px;
+
+.body {
+    margin-left: 20%;
 }
-.form-check{
-    margin-left:190px ;
-    display: inline-block;
+
+.dis {
+    height: 100px;
+    box-sizing: border-box;
 }
-.form-check-input{
-    border-color: #000000;
-    display: inline-block;
-}
-.button{
-    width: 119px;
-    margin-left: 94%;
- height: 40px;
-    background: #26A5B9;
+
+.UploadImg {
+    width: 100px;
+    height: 100px;
     border-radius: 10px;
-    color:#FFFFFF;
-    text-align: center;
- display: inline-block;
+    cursor: zoom-in;
+}
+
+.btn {
+    background-color: #26A5B9;
+    color: white;
+    cursor: pointer;
+}
+
+.btn :hover {
+    background-color: gray;
+    color: black;
+}
+
+.btn2 {
+    justify-content: right;
+    margin-left: 40%;
+}
+
+.images {
+    overflow: auto;
+    display: flex;
+}
+
+.images::-webkit-scrollbar {
+    height: 5px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 765px) {
+    .topImg {
+        display: none;
     }
+
+    .category {
+        display: block;
+    }
+
+    .body {
+        margin-left: 1%;
+    }
+}

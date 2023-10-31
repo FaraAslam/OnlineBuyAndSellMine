@@ -1,31 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { MenuNavbarService } from 'src/app/services/menu-navbar/menu-navbar.services';
-import { Category, SubCategory } from '../Models/category-model';
-import { AccountService } from 'src/app/services/account/account.service';
 import { SubCategoriesService } from 'src/app/services/sub-categories/sub-categories.service';
+import { Category, SubCategory } from '../../Models/category-model';
+import { AccountService } from 'src/app/services/account/account.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-menu-navbar',
-  templateUrl: './menu-navbar.component.html',
-  styleUrls: ['./menu-navbar.component.css'],
+  selector: 'app-categories',
+  templateUrl: './categories.component.html',
+  styleUrls: ['./categories.component.css'],
 })
-export class MenuNavbarComponent implements OnInit {
-  ShowSeeAll = false;
+export class CategoriesComponent implements OnInit {
   Categories: Category[] = [];
   subCategories: SubCategory[] = [];
   loading: boolean = false;
-  UserId: any = '';
-  IsCurrentUser: boolean = false;
   SubCategoriesData: any[] = [];
-  categoryId: any = '';
   loadDefualt: any;
-  categoryName: string = '';
   constructor(
     private subCategoriesService: SubCategoriesService,
     private accountService: AccountService,
-    private router: Router,
-    private route: ActivatedRoute
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -41,12 +34,10 @@ export class MenuNavbarComponent implements OnInit {
             categoryId: dt[a].categoryId,
             name: dt[a].name,
           };
-          if (a < 5) {
-            this.loadSubCategories(_mainCategory.categoryId);
-            this.Categories.push(_mainCategory);
-          }
-          if (a == 5) {
-            this.ShowSeeAll = true;
+          this.loadSubCategories(_mainCategory.categoryId);
+          this.Categories.push(_mainCategory);
+          if (a == 0) {
+            this.loadDefualt = _mainCategory.categoryId;
           }
         }
         this.loading = false;
@@ -67,11 +58,12 @@ export class MenuNavbarComponent implements OnInit {
       for (let a = 0; a < dt.length; a++) {
         let subCategory: SubCategory = {
           name: dt[a].name,
-          categoryName: dt[a].catagoryName,
+          categoryName: dt[a].categoryName,
           categoryId: dt[a].categoryId,
           subCategoryId: dt[a].subCategoryId,
         };
         this.subCategories.push(subCategory);
+        debugger;
       }
       this.getSubCategory(this.loadDefualt);
     });

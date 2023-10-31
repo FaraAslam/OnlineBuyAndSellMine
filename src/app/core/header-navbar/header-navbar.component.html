@@ -2,100 +2,75 @@
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Toggle button -->
-    <button class="navbar-toggler" style="background-color: white" type="button" data-mdb-toggle="collapse"
+    <!-- <button class="navbar-toggler" style="background-color: white" type="button" data-mdb-toggle="collapse"
       data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
       aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
-    </button>
-
+    </button> -->
     <!-- Collapsible wrapper -->
     <div class="collapse navbar-collapse">
       <!-- Navbar brand -->
       <span><img class="logo-top" [routerLink]="['/']" title="Online Sell and Buy"
-          src="assets/Images/logo copy.png"></span>
+          src="assets/Images/logo copy.png" /></span>
       <!-- Left links -->
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <div class="input-group">
-            <input class="form-control py-2" style="border-radius: 0px" type="search"
-              placeholder="What are you looking for?" (keyup)="onKeyUp($event)" [(ngModel)]="searchKey" />
-            <span class="input-group-append">
-              <button class="btn search-btn-navbar " type="button" [routerLink]="['/shop/search', searchKey]">
-                <i class="fa fa-search"></i>
-              </button>
-            </span>
+      <form style="width: -webkit-fill-available" class="px-5" action="" #Update="ngForm" method="post">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="input-group">
+              <input class="form-control py-2" style="border-radius: 0px" type="search"
+                placeholder="What are you looking for?" (keyup)="searchProducts($event)" [(ngModel)]="searchKeyProduct"
+                name="searchKeyProduct" (blur)="hidesearchresult()" />
+              <span class="input-group-append">
+                <button class="search-btn-navbar" type="button" (click)="submitSearch(searchKeyProduct, searchKey)">
+                  <i class="fa fa-search" style="font-size: 18px"></i>
+                </button>
+              </span>
+            </div>
+            <ul class="searchResult" *ngIf="searchProduct">
+              <li style="cursor: pointer" *ngFor="let item of searchProduct" (mousedown)="redactDetail(item.productId)">
+                <a style="color: gray" href="">{{ item.name }}</a>
+              </li>
+            </ul>
           </div>
-        </li>
-      </ul>
+          <div class="col-lg-6">
+            <div class="input-group">
+              <input class="form-control py-2" style="border-radius: 0px" type="search" placeholder="Location"
+                [(ngModel)]="searchKey" name="searchKey" autocomplete="off" />
+              <span class="input-group-append">
+                <button class="search-btn-navbar" type="submit" (click)="submitSearch(searchKeyProduct, searchKey)">
+                  <i class="fa fa fa-arrow-circle-o-down" style="font-size: 18px" aria-hidden="true"></i>
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
     <!-- Icon -->
-    <a class="navbar-link-text1" [routerLinkActive]="['ActiveRoute']">
-      <img src="./assets/Images/shop/cart-icon.png" *ngIf="UserId != null" [routerLink]="['/wishlist', UserId]" />
+    
+    <a class="navbar-link-text1" [routerLinkActive]="['ActiveRoute']" [routerLink]="['/product-details']">
+      <img src="./assets/Images/shop/cart-icon.png" style="justify-content: space-between;" *ngIf="UserId != null" [routerLink]="['/wishlist', UserId]" />
     </a>
-    <i class="fa fa-commenting-o d-pointer" *ngIf="UserId != null" [routerLink]="['/chat', UserId]"
-      style='font-size:36px ;margin-right: 27px; height: 37px; color: white;'></i>
-    <div class="dropdown" style="float:right;">
-      <img class="rounded-circle dropbtn" height="40" width="40" src="{{userData.profileImage}}" />
+    <i class="fa fa-commenting-o d-pointer" *ngIf="UserId != null" [routerLink]="['/chat']"
+      style="font-size: 36px; margin-right: 27px; height: 37px; color: white"></i>
+    <div class="dropdown" style="float: right">
+      <img class="rounded-circle dropbtn" height="40" width="40" src="{{ userData.profileImage }}" />
       <div class="dropdown-content">
-        <a routerLink="/login" *ngIf="UserId != null">LogIn</a>
-        <a routerLink="/userprofile" *ngIf="UserId != null">User Profile</a>
-        <a routerLink="/" (click)="Logout()" *ngIf="UserId == null">LogOut</a>
+        <a routerLink="login" *ngIf="UserId == null">LogIn</a>
+        <a routerLink="userprofile" *ngIf="UserId != null">User Profile</a>
+        <a routerLink="/" (click)="Logout()" *ngIf="UserId != null">LogOut</a>
+        <a routerLink="add-product" *ngIf="UserId != null">Add product</a>
       </div>
     </div>
 
-    <span class="mt-1 to-selll-btn d-pointer" *ngIf="UserId != null" [routerLink]="['/add-product']"><i
-      class="fa fa-upload" style="margin-right: 3px;" aria-hidden="true"></i>To Sell</span>
-  <span class="mt-1 to-selll-btn d-pointer" *ngIf="UserId == null" [routerLink]="['/add-product']" ><i class="fa fa-upload"
-      style="margin-right: 3px;" aria-hidden="true"></i>To Sell</span>
+    <span class="to-sell-btn d-pointer" *ngIf="UserId != null" [routerLink]="['/add-product']"><i class="fa fa-plus"
+        style="width: 60px" aria-hidden="true">
+        To Sell</i></span>
+    <span class="mt-1 to-sell-btn d-pointer" *ngIf="UserId == null" routerLink="login"><i class="fa fa-upload"
+        style="margin-right: 3px" aria-hidden="true">To Sell</i></span>
   </div>
 </nav>
-<!-- <span class="mobile-view">
-    <input type="checkbox" id="ham-menu" />
-    <label for="ham-menu">
-      <div class="hide-des">
-        <span class="material-icons"> density_medium </span>
-      </div>
-    </label>
-    <div class="full-page-green"></div>
-    <div class="ham-menu">
-      <ul class="centre-text">
-        <li class="mobile-Nav-heading" [routerLinkActive]="['ActiveRouteMobile']" [routerLink]="['/shop/home']">Home</li>
-        <li>
-          <div class="input-group" style="padding: 20px">
-            <input class="form-control py-2" style="border-radius: 0px; width: 80px" type="search" (keyup)="onKeyUp($event)" [(ngModel)]="searchKey" />
-            <span class="input-group-append">
-              <button class="btn search-btn-navbar" style="width: 30px" type="button" [routerLink]="['/shop/search', searchKey]">
-                <i class="fa fa-search"></i>
-              </button>
-            </span>
-          </div>
-        </li>
-        <li>
-          <button mat-button [matMenuTriggerFor]="menu" class="dropdown-toggle" id="navbarDropdownMenuAvatar1" role="button" data-mdb-toggle="dropdown" aria-expanded="false">Categories</button>
-          <mat-menu #menu="matMenu" xPosition="before">
-            <span *ngFor="let category of customerCategories">
-              <button mat-menu-item class="dropdown-text" [routerLink]="['/shop/category/product/', category.categoryId]" (mouseover)="getSubcategory(category.categoryId)" [matMenuTriggerFor]="invertebrates">
-                {{ category.name }}
-              </button>
-            </span>
-          </mat-menu>
-          <mat-menu #invertebrates="matMenu">
-            <button mat-menu-item style="text-align: center" *ngIf="SubCategoryLoading">
-              <i class="fa fa-spinner fa-spin" style="font-size: 22px"></i>
-            </button>
-            <button mat-menu-item  [routerLink]="[]">
-              <span *ngIf="SubCategoryLoading == false"></span>
-            </button>
-          </mat-menu>
-        </li>
-        <li class="mobile-view-text" [routerLinkActive]="['ActiveRouteMobile']" [routerLink]="['/shop/savedList']">Saved Lists</li>
-        <li class="mobile-view-text" [routerLinkActive]="['ActiveRouteMobile']" [routerLink]="['/shop/favourities']">Favourites</li>
-        <li class="mobile-view-text" [routerLinkActive]="['ActiveRouteMobile']" [routerLink]="['/shop/myOrders']">My Orders</li>
-        <li class="mobile-view-text" [routerLinkActive]="['ActiveRouteMobile']" [routerLink]="['/shop/basket']">Basket</li>
-        <li class="mobile-view-text" (click)="Logout()">Log out</li>
-      </ul>
-    </div>
-  </span>-->
+
 <div class="menu-navebarr">
   <ul class="nav justify-content-center">
     <li class="nav-item">

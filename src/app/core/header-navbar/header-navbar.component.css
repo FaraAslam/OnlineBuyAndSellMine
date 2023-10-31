@@ -16,23 +16,27 @@ thead {
 }
 
 .logo-top {
-  margin-left: 80px;
+  margin-left: 20px;
 }
 
 .form-control {
   border-top-left-radius: 5px !important;
   border-bottom-left-radius: 5px !important;
+  height: 40px;
+  margin-top: 20px;
 }
 
 .search-btn-navbar {
   border-radius: 1px;
   color: #26A5B9;
   background-color: #B5EFF0;
-  padding: 9.8px 15px;
+  padding: 9.7px 15px;
   border-top-right-radius: 5px !important;
   border-bottom-right-radius: 5px !important;
+  margin-right: 40rem;
+  border: 1px solid #B5EFF0;
+  margin-top: 19px;
 }
-
 
 .navbar-head {
   background-color: #26A5B9;
@@ -70,16 +74,17 @@ thead {
 }
 
 .input-group {
-  width: 245%;
-  margin-left: 54px;
+  width: 265%;
+  margin-left: 14px;
 }
 
-.to-selll-btn {
-  margin-left: 39px;
-  margin-right: 17px;
+.to-sell-btn {
+  margin-left: 50px;
+  margin-right: 10px;
   border-radius: 5px;
-  padding: 12px 10px 6px 10px;
+  padding: 8px 10px 6px 10px;
   background: white;
+height: 35px;
 }
 
 .navbar-link-text {
@@ -405,7 +410,7 @@ thead {
   }
 }
 
-.dropdown-text {
+ .dropdown-text {
   font-family: Source Sans Pro !important;
   font-size: 15px !important;
   font-weight: 600 !important;
@@ -444,4 +449,28 @@ thead {
 
 .dropdown:hover .dropdown-content {
   display: block;
+} 
+
+.searchResult {
+
+  display: table;
+  z-index: 0;
+  top: 5rem;
+  background: aliceblue;
+  width: 130px;
+
+  box-shadow: 1px 5px 10px rgb(151, 151, 151);
+  border-radius: 10px;
+  list-style: none;
+  overflow: hidden;
+  padding: 0px;
+}
+
+.searchResult li {
+  padding: 10px;
+}
+
+.searchResult li:hover {
+  background-color: rgb(218, 227, 234);
+  text-decoration: solid #B5EFF0
 }

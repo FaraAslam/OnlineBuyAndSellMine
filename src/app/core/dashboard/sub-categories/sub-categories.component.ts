@@ -43,7 +43,7 @@ export class SubCategoriesComponent implements OnInit {
           name: dt[a].name,
           categoryId: dt[a].categoryId,
           subCategoryId: dt[a].subCategoryId,
-          catagoryName: dt[a].catagoryName,
+          categoryName: dt[a].categoryName,
         }
         this.subCategories.push(_subCategory);
       }

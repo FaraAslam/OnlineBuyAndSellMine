@@ -10,6 +10,9 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import {MatRadioModule} from '@angular/material/radio';
 import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CategoriesComponent } from './categories/categories.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 @NgModule({
@@ -17,7 +20,10 @@ import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     CategoryProductsComponent,
     ProductDetailsComponent,
-    AddProductComponent
+    AddProductComponent,
+    CategoriesComponent,
+    WishlistComponent,
+    ChatComponent
   ],
   imports: [
     CommonModule,
