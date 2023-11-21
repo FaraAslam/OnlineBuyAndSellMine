@@ -1,0 +1,15 @@
+.product-card{
+    margin-left: 0px;
+    background: #FFFFFF;
+    border-radius: 10px;
+   
+}
+.card:hover {
+    transform: scale(1.0);
+    box-shadow: 1px 5px 10px rgb(151, 151, 151);
+}
+.card{
+
+    width: 100px;
+    height: 370px;
+}

@@ -10,6 +10,7 @@ export interface UserList{
     fullName:string,
     address:string,
     whatsAppNumber:number,
+  
 }
   export interface UserProductDetails
   {

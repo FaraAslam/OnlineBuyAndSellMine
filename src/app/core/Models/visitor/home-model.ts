@@ -59,7 +59,7 @@ export interface Products{
     isOld:boolean,
     sellerName: string,
     sellerPhoneNumber:string,
-    sellerPartnership : any,
+    sellerPartnership : number,
     condition:string,
     sellerAddress:string,
     categoryId:any,
@@ -69,7 +69,7 @@ export interface Products{
     isInUserWishList:boolean,
     imageLinks:ProductImage[],
     location?:string,
-    sellerProfileImage?: string,
+    sellerProfileImage: string,
     subCategoryId:string,
     whatsAppNumber:number,
   }

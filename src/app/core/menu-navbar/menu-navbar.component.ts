@@ -62,7 +62,6 @@ export class MenuNavbarComponent implements OnInit {
   loadSubCategories(data: any) {
     this.subCategories = [];
     this.subCategoriesService.GetSubCategoriesById(data).subscribe((data) => {
-      debugger;
       var dt = data.data;
       for (let a = 0; a < dt.length; a++) {
         let subCategory: SubCategory = {

@@ -11,50 +11,58 @@
         </div>
     </div>
     <div class="row">
-
-        <div class=" col-5 mt-5">
-            <label> First Name</label>
-            <input ngModel="{{userList.firstName}}" class="input-feild w-100 " type="text" name="firstName"
-                placeholder="First Name" #firstName="ngModel" required>
-            <span class="errorValdation" *ngIf="firstName.touched && firstName.errors">Please enter
-                firstName</span>
-        </div>
+        <div class="col-md-9 col-sm-12">
+        <form action="" #update="ngForm" method="post" (ngSubmit)="UpdateUser(update.value)"> 
+        <div class="row">
+            <div class=" col-5 mt-5">
+                <label> First Name</label>
+                <input ngModel="{{userList.firstName}}" class="input-feild w-100 mt-2 " type="text" name="firstName"
+                    placeholder="First Name" #firstName="ngModel" required>
+                <span class="errorValdation" *ngIf="firstName.touched && firstName.errors">Please enter
+                    firstName</span>
+             </div>
         <div class="col-5 mt-5">
             <label> Last Name</label>
-            <input ngModel="{{userList.lastName}}" class="input-feild w-100 " type="text" name="lastName"
+            <input ngModel="{{userList.lastName}}" class="input-feild w-100 mt-2" type="text" name="lastName"
                 placeholder="Last Name" #lastName="ngModel" required>
             <span class="errorValdation" *ngIf="lastName.touched && lastName.errors">Please enter lastName</span>
         </div>
+    </div>
         <div class="col-10 mt-5">
             <label>E-Mail</label>
-            <input ngModel="{{userList.email}}" class="input-feild w-100" placeholder="E-Mail" #email="ngModel">
-            
+            <input ngModel="{{userList.email}}" class="input-feild w-100 mt-2" placeholder="E-Mail" #email="ngModel">
+
         </div>
         <div class="col-10 mt-5">
             <label> Phone Number</label>
-            <input ngModel="{{userList.phoneNumber}}" type="text" class="input-feild w-100" placeholder="Phone No"
+            <input ngModel="{{userList.phoneNumber}}" type="text" class="input-feild w-100 mt-2" placeholder="Phone No"
                 #phoneNumber="ngModel">
         </div>
         <div class="col-10 mt-5">
             <label> WhatsApp Number</label>
-            <input ngModel="{{userList.whatsAppNumber}}" type="text" class="input-feild w-100"
-                placeholder="WhatsApp Number" #phoneNumber="ngModel">
+            <input ngModel="{{userList.whatsAppNumber}}" type="text" class="input-feild w-100 mt-2"
+                placeholder="WhatsApp Number" #whatsAppNumber="ngModel">
+                <span class="errorValdation"></span>
         </div>
         <div class="col-10 mt-5">
             <label> address</label>
-            <input ngModel="{{userList.address}}" type="text" class="input-feild w-100" placeholder="Address"
-                #phoneNumber="ngModel">
+            <input ngModel="{{userList.address}}" type="text" class="input-feild w-100 mt-2" placeholder="Address"
+                #address="ngModel">
+                <span class="errorValdation"></span>
         </div>
 
         <div class="col-2 ">
-            <div class="profile-info "><img src="{{userList.profileImage}}" width="280px" height="250px" class="">&nbsp;
-                <button> <i class="fa fa-cloud-upload"></i>Profile</button>
+            <div class="profile-info "><img src="{{userList.profileImage}}" width="230px" height="220px" (click)="showImg(userList.profileImage)" class="">&nbsp;
+                <input style="display: none" type="file" (change)="onFileUpload($event)" #selectFile>
+                <button  (click)="OnUploadFile()" (click)="selectFile.click()"> <i class="fa fa-cloud-upload"></i>Profile</button>
             </div>
         </div>
 
-        <div class="button mt-5">
+        <div class="button ">
             <button class="btn">Save Change</button>
         </div>
+        </form>
+    </div> 
     </div>
 
 </div>

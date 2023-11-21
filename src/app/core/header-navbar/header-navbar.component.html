@@ -48,8 +48,9 @@
     </div>
     <!-- Icon -->
     
-    <a class="navbar-link-text1" [routerLinkActive]="['ActiveRoute']" [routerLink]="['/product-details']">
-      <img src="./assets/Images/shop/cart-icon.png" style="justify-content: space-between;" *ngIf="UserId != null" [routerLink]="['/wishlist', UserId]" />
+    <a class="navbar-link-text1" [routerLinkActive]="['ActiveRoute']">
+      <img src="./assets/Images/shop/cart-icon.png" style="justify-content: space-between;"
+       *ngIf="UserId != null" [routerLink]="['/wishlist', UserId]" />
     </a>
     <i class="fa fa-commenting-o d-pointer" *ngIf="UserId != null" [routerLink]="['/chat']"
       style="font-size: 36px; margin-right: 27px; height: 37px; color: white"></i>

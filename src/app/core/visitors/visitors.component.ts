@@ -11,23 +11,23 @@ import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
 export class VisitorsComponent  implements OnInit {
  
   collapsed = true;
- 
   searchKey: any = '';
   quantity: any;
   cartQuantity: any;
   closeModal: string;
   UserId: any;
-
   profile: boolean = false;
   category: boolean = false;
   userId: any;
   profileLoading: boolean = false;
   SubCategoryLoading: boolean = false;
 
+ 
+
   constructor(private router: Router,  private accountService: AccountService,  private dashboardService: DashboardService) {
     
   }
-  ngOnInit(): void {
+  ngOnInit(): void { 
 }
 onKeyUp(data: any) {
   if (data.key == 'Enter') {

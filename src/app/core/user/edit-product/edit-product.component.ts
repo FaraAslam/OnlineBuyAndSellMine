@@ -34,7 +34,7 @@ export class EditProductComponent implements OnInit{
     isOld: false,
     sellerName: '',
     sellerPhoneNumber: '',
-    sellerPartnership: undefined,
+    sellerPartnership:0,
     condition: '',
     sellerAddress: '',
     categoryId: undefined,
@@ -45,7 +45,8 @@ export class EditProductComponent implements OnInit{
     imageLinks: [],
     location: '',
     subCategoryId: '',
-    whatsAppNumber: 0
+    whatsAppNumber: 0,
+    sellerProfileImage: ''
   };
   constructor(private productService:ProductService,private router:Router,private menuNavbarService:MenuNavbarService,
     private accountService:AccountService,private route:ActivatedRoute,private userService:UserService){}
@@ -92,6 +93,7 @@ export class EditProductComponent implements OnInit{
           createdBy: dt.createdBy,
           isInUserWishList: dt.isInUserWishList,
           location: dt.location,
+          sellerProfileImage:dt.sellerProfileImage,
           subCategoryId: dt.subCategoryId,
           imageLink:
             dt.imageLink == null

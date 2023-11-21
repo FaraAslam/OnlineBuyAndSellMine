@@ -13,7 +13,7 @@ import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CategoriesComponent } from './categories/categories.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { ChatComponent } from './chat/chat.component';
-
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,8 @@ import { ChatComponent } from './chat/chat.component';
     AngularEditorModule,
     MatRadioModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatMenuModule
   ],
   exports: [
     AddProductComponent,

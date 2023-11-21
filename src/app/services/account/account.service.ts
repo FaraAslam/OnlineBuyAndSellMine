@@ -61,4 +61,12 @@ export class AccountService {
       return user;
   })); 
   }
+    //api/Auth/update-user-lastSeen-details
+    UpdateUserForLastSeen() {
+      return this.repositoryService.put('Auth/update-user-lastSeen-details',{})
+      .pipe(map((response: any) => {
+          return response;
+        })
+      );
+    }
 }

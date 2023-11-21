@@ -23,5 +23,17 @@ export interface Visitors{
    totalProductCount:number,
    totalCategoryCount:number
   }
+  export interface UserData{
+    userId:string,
+   name:string,
+   profileImage:string,
+   firstName:string
+   lastName:string
+   email:string
+   userName:string
+   phoneNumber:number
+   address:string,
+   whatsAppNumber:number
+}
 
   

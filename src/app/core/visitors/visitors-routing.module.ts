@@ -62,6 +62,11 @@ const routes: Routes = [
       path:'chat',
       component:ChatComponent
     },
+    {
+      canActivate: [AdminGuard],
+      path:'wishlist',
+      component:WishlistComponent
+    },
     ],
   },
 ];

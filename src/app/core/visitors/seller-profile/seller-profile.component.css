@@ -1,32 +1,40 @@
-
-a{
+a {
     margin-left: 50px;
 }
-.products-heading{
+
+.products-heading {
     margin-left: 300px;
-margin-top: -30%;
+    margin-top: -30%;
 }
-.card{
-background: #FFFFFF;
-border: 1px solid rgba(0, 0, 0, 0.25);
-margin-left: 72%;
-margin-top: -20px;
+
+.card {
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    margin-left: 30px;
+    margin-top: -20px;
 }
-h3{
-    margin-left: 300px; 
-    margin-top: 10px; 
+
+h3 {
+    margin-left: 300px;
+    margin-top: 10px;
 }
-.SelImg{
+.fa-whatsapp{
+    margin-left: -90px;
+}
+.SelImg {
     box-sizing: border-box;
     width: 200px;
     height: 200px;
-    border: 1px solid #26A5B9;
     border-radius: 50%;
- 
+    margin-top: 100px;
 }
-.product-card{
-  margin-left: 90%;
-   margin-top:10%;
 
-
+.product-card {
+    margin-left: 17rem;
+    margin-top: 10%;
+    padding-left: -90px;
+    padding-right: 0%;
+}
+.second-heading {
+    margin-left: -40px;
 }

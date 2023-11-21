@@ -22,7 +22,7 @@ thead {
 .form-control {
   border-top-left-radius: 5px !important;
   border-bottom-left-radius: 5px !important;
-  height: 40px;
+  height: 39px;
   margin-top: 20px;
 }
 
@@ -35,7 +35,7 @@ thead {
   border-bottom-right-radius: 5px !important;
   margin-right: 40rem;
   border: 1px solid #B5EFF0;
-  margin-top: 19px;
+  margin-top: 20px;
 }
 
 .navbar-head {
@@ -71,11 +71,12 @@ thead {
   text-align: left;
   position: absolute;
   margin-left: -10px !important;
+  margin-top: -5px;
 }
 
 .input-group {
   width: 265%;
-  margin-left: 14px;
+  margin-left: 12px;
 }
 
 .to-sell-btn {

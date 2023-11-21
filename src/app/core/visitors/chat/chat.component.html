@@ -1,1 +1,155 @@
-<p>chat works!</p>
+<div class="container">
+    <div class="row">
+        <div class="card userlist-card col-md-4 col-sm-12">
+            <h1 class="second-heading">Chat</h1>
+         <hr class="">
+            <div class="contact-scroll-container">
+                <!-- <div class="d-flex justify-content-center">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div> -->
+                <div class="scroll-container" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+                    <div class="row user-list fade-bottom " *ngFor="let user of userWithLastMessage"
+                        (click)="GetMessagesByUserId(user.userId, null);loading()">
+                        <div class="row">
+                            <div class="col-8"></div>
+                            <div class="col-4">
+                                <p class="active-time" id="last-active-time">{{user.lastConnectedDate}}</p>
+                            </div>
+                        </div>
+                         <div class="row">
+                            <div class="col-md-2">
+                                <img class="profile-img d-pointer" style="margin-left: 20px;" height="60" width="60"
+                                    title="" src="{{user.profileImage}}">
+                            </div>
+                            <div class="col-9 d-pointer">
+                                <p class="user-name third-heading">{{user.firstName + " " + user.lastName}} </p>
+                                <p class="fourth-heading last-message" *ngIf="user.lastText != 'null'">{{user.lastText}}
+                                </p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card text-card col-md-8">
+            <div *ngIf="userToId == '' ">
+                <img class="mt-5" src="./assets/Images/message.png" alt="" width="350px" height="250px"
+                    style="margin-left: 250px ;">
+                <p class="text-to-start"><b>Select user to start chat</b></p>
+            </div>
+            <div class=" chat-section" *ngIf="userToId != '' ">
+                <div class="row">
+                    <div class="col-1 backIcon" (click)="back()">
+                        <i class="fa fa-arrow-left " aria-hidden="true"></i>
+                    </div>
+
+                    <div class=" col-md-2 col-sm-6" style="min-height: 43px;">
+                        <img class="profile-img d-pointer mt-4" style="margin-left: -30px;"
+                            [routerLink]="['/seller',userToId]" height="60" width="60" *ngIf="selectedUserImg != '' "
+                            src={{selectedUserImg}}>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <p class="user-name third-heading d-pointer" [routerLink]="['/seller',userToId]"
+                            style="margin-left: -90px;">
+                            {{selectedUserName}}</p>
+                        <p class="fourth-heading " *ngIf="isOnline == false"><i class="fa fa-circle-o"
+                                aria-hidden="true"></i>{{selectedUserTime}}
+                        </p>
+                        <p class="fourth-heading " style="margin-left: -90px;"><i class="fa fa-circle"
+                                style="color: chartreuse;" aria-hidden="true"></i> Active
+                        </p>
+                    </div>
+                </div>
+                <hr *ngIf="userToId != ''">
+                <div class="scroll-container" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+                    <!-- Message Section -->
+                    <div class="row" *ngFor="let message of messagesBWUsers.slice().reverse()">
+                        <div class="col-md-12">
+                            <!--  -->
+                            <div class="user-chat " *ngIf="message.isCurrentUser==false">
+                                <p class="chat" *ngIf="message.messageText != '' || message.messageText == null  ">
+                                    {{message.messageText}}</p>
+
+                                <img class="chatImg1" height="130" width="130" title="image"
+                                    *ngIf="message.imageLink != '' || message.imageLink == null"
+                                    src={{message.imageLink}} (click)="openImg(message.imageLink)">
+                                <p class="" id="message-time1">{{message.createdDateTime | date : 'HH:mm'}} </p>
+
+                            </div>
+                            <!-- Current User-->
+                            <div class="chat2" *ngIf="message.isCurrentUser">
+                                <p class="chattext2" id="chat-two"
+                                    *ngIf="message.messageText != '' || message.messageText == null  ">
+                                    {{message.messageText}}</p>
+
+                                <img class="chatImg2 mb-4" height="130" width="130" title=""
+                                    *ngIf="message.imageLink != '' || message.imageLink == null  "
+                                    src={{message.imageLink}} (click)="openImg(message.imageLink)">
+                                <p class="" id="message-time2">{{message.createdDateTime | date : 'HH:mm'}}
+                                    <i class="" style="font-size: large" *ngIf="message.messageId"
+                                        aria-hidden="true"></i>
+                                    <i class="fa fa-clock-o" style="font-size: large" *ngIf="!message.messageId"
+                                        aria-hidden="true"></i>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card input-card col-md-8" *ngIf="userToId != '' ">
+                    <form [formGroup]="addMessageForm" (ngSubmit)="onSubmitAddMessage()">
+                        <div class="row ">
+                            <div class="col-12">
+                                <input style="display: none;" name="profile" type="file" (change)="onFileUpload($event)"
+                                    #selectFile>
+                                <div class="row">
+                                    <div class="col-1" *ngFor="let img of addProductImages">
+                                        <i class="fa fa-times d-pointer cross-icon" aria-hidden="true"
+                                            (click)="removeImg(img)"></i>
+                                        <img class="UploadImg mt-3 mx-2" src="{{img}}" height="40" width="50"
+                                            style="position: relative;top: -9px">
+                                        <!-- <i class="fa fa-trash" aria-hidden="true" style="position: relative;top: -40px;right: 22px;color: red;cursor: pointer;" ></i> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- style="width: 10%;" -->
+                            <div class="col-2 col-md-2 col-lg-1 ">
+                                <button mat-button [matMenuTriggerFor]="Menu" class="sendIcon"
+                                    style="border-right: 1px solid #ddd;" type="button"> <i class="fa fa-paperclip "
+                                        style="font-size:20px" aria-hidden="false"></i></button>
+                                <mat-menu #Menu="matMenu" yPosition="above">
+                                    <button mat-menu-item (click)="selectFile.click()"><i class="fa fa-picture-o"
+                                            aria-hidden="true"></i> Photo</button>
+                                    <button mat-menu-item><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                        Location</button>
+                                    <button mat-menu-item><i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                        Whatsapp</button>
+                                </mat-menu>
+                            </div>
+                            <!-- style="width: 85%;" -->
+                            <div class="col-8 col-md-9 col-lg-10 p-0">
+                                <input type="text" class="form-control  message-input" name="add-title"
+                                    formControlName="messageText" autocomplete="off" placeholder="Write something..."
+                                    required>
+                                <!-- <input type="text" (keyup.enter)="onSubmitAddMessage()" [(ngModel)]="messageText" 
+                                     class="form-control message-input" > form-field -->
+                            </div>
+                            <!-- style="width: 5%;" -->
+                            <div class="col-2 col-lg-1 col-md-1 p-0">
+                                <button type="submit" class="btns sendIcon" style="border-left: 1px solid #ddd;">
+                                    <i class="fa fa-paper-plane " aria-hidden="false"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <br /><br />

@@ -4,8 +4,8 @@
         <div class="sidebar d-flex" id="wrapper">
             <!-- Sidebar -->
             <div class="col-md-3 col-lg-2 bg-sidebar border-right" id="sidebar-wrapper">
-                <header><img src="./assets/Images/userimg.png">
-                    <h5>Fa Creation</h5>
+                <header><img src="{{UserData.profileImage}}">
+                    <h5>{{UserData.name}}</h5>
                 </header> <br /><br />
                 <div class="list-group">
                     <a [routerLink]="['/']"  class="item-sidebar d-pointer "> <i class="fa fa-home m-4"></i> Home</a>

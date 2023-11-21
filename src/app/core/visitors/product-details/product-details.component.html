@@ -5,21 +5,56 @@
                 <div class="container">
                     <div class="row">
 
-                        <div class="col-lg-6 col-md-8 col-sm-12 mt-2">
-                            <img height="347" width="440" src={{ProductDetail.imageLink}}
-                                class="img-fluid rounded-start" alt="...">
-                            <!-- <img class="image-field mt-2 mb-3 " height="82" width="90" title=""
-                        src={{ProductDetail.imageLink}}> -->
-
+                        <div class="col-lg-6 col-md-8 col-sm-12 mt-2" style="display: flex;overflow: hidden;">
+                            <div *ngIf="show==true"> <button class="btn1" (click)="changeImg(1)"><i
+                                        class="fa fa-chevron-left" aria-hidden="true"></i></button></div>
+                            <div> <img src={{ProductDetail.imageLink}} width="500px" height="300px" class="img-fluid"
+                                    (click)="fullImage()" alt={{mainImg}}></div>
+                            <div *ngIf="show==true"><button class="btn2" (click)="changeImg(2)"><i
+                                        class="fa fa-chevron-right" aria-hidden="true"></i></button></div>
                         </div>
                         <div class="col-lg-6 col-md-4 col-sm-12">
                             <div class="card-body">
                                 <h5 class="card-title">{{ProductDetail.name}}</h5>
-                                <p class="card-text">Price :{{ProductDetail.price}}</p>
-                                <p class="card-text">Condition</p>
-                                <p class="card-text"> Category type</p>
-                                <button>Bags</button>
+                                <div class="row">
+                                    <div class="col-12 mt-3">
+                                        <span class="price-title">Price</span>
+                                        <span class="price">Rs: {{ProductDetail.price}}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 mt-3">
+                                        <span class="price-title">Condition</span>
+                                        <span class="price">{{ProductDetail.condition}}</span>
+                                    </div>
+                                </div><br><br><br><br><br><br><br><br>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-22 col-sm-12">
+
+                                        <span *ngIf="ProductDetail.isInUserWishList == true"> <i
+                                                class="fa fa-heart wishlist-icon" style="color: #26A5B9;"
+                                                (click)="removeToWishList(ProductDetail.productId)"></i></span>
+                                        <span (click)="addToWishlist(ProductDetail.productId)"
+                                            *ngIf="ProductDetail.isInUserWishList != true "> <i
+                                                class="fa fa-heart-o wishlist-icon"></i></span>
+                                        <i class="fa fa-share-alt eye-icon icon" (click)="copyLink()"></i>
+                                        <button [routerLink]="['/wishlist',ProductDetail.productId]">Cart</button>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+                    </div>
+                    <!-- <div class="image-row">
+                        <div class="imageList" style="padding-top: 20px" >
+                            <img src="{{ ProductDetail.imageLink }}"  height="80px" width="80"
+                                onContextMenu="return false;" (click)="changeImg(ProductDetail.imageLink)" />
+                        </div>
+                    </div>   -->
+                    <div class="image-row">
+                        <div class="imageList" *ngFor="let img of ProductDetail.imageLinks">
+                            <img src="{{img.imageLink}}" alt="" width="150px" height="100px"
+                                oncontextmenu="return false" (click)="changeImg(img.imageLink)">
                         </div>
                     </div>
                 </div>
@@ -28,74 +63,108 @@
         <div class="col-lg-4 mt-2 ">
             <div class="card min-ht mt-2">
                 <div class="col-lg-12">
+
                     <h6 class="products-heading seller-description-title">Seller Description</h6>
+
                 </div>
-                <div class="col-lg-6 col-md-3 col-sm-6">
-                    <img class=" profile-img " height="70" width="70" title="" src={{ProductDetail.sellerProfileImage}}>
-                    {{ProductDetail.sellerName}}
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <img class=" profile-img " height="70" width="70" title=""
+                            src={{ProductDetail.sellerProfileImage}}>
+                    </div>
+                    <div class=" sellerName col-lg-6 col-md-3 col-sm-6">
+                        {{ProductDetail.sellerName}}</div>
+                    <div class="row">
+                        <div *ngIf="ProductDetail.createdBy!=userId" class="col-lg-12 col-md-3">
+                            <button class="chat-seller-btn" [routerLink]="['/chat',ProductDetail.createdBy]"><i
+                                    class="fa fa-comments-o" aria-hidden="true"></i> Chat with Seller </button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-11 col-md-3 col-sm-6">
+                        <hr style="color:#26A5B9 ;">
+                        <br />
+                        <span class="sc-number"><i class="fa fa-phone" aria-hidden="true"></i> Seller Contact No.</span>
+                        <span class="fr second-heading">{{ProductDetail.sellerPhoneNumber}}</span>
+                    </div>
+                    <br />
+                    <div class="col-lg-11 col-md-3 col-sm-6 mt-3">
+                        <span class="sc-number"><i class="fa fa-calendar" aria-hidden="true"></i> Membership
+                            Since</span>
+                        <span class="fr second-heading">{{ProductDetail.sellerPartnership | date: 'dd/MM/yyyy'}}</span>
+                    </div>
+                    <br /><br /><br />
+                    <div class="col-lg-11 col-md-3 col-sm-6 ms-3">
+                        <h6 class="fr second-heading d-pointer" id="vs-profile" style="color:#26A5B9;"
+                            [routerLink]="['/seller',ProductDetail.createdBy]">View Seller Profile</h6>
+                    </div>
                 </div>
-                <div class="col-lg-11 col-md-3 col-sm-6">
-            <hr style="color:#26A5B9 ;">
-            <span class="sc-number" ><i class="fa fa-phone" aria-hidden="true"></i> Seller Contact No.</span>
-                    <span class="fr second-heading" >{{ProductDetail.sellerPhoneNumber}}</span><br>
+            </div>
+
         </div>
-        <div class="col-lg-11 col-md-3 col-sm-6">
-            <span class="sc-number " ><i  class=" fa fa-address-card"  ></i> Address</span>
-           <span class="fr second-heading" id="seller-title">{{ProductDetail.sellerAddress}}</span><br><br><br> 
-        </div>
-        <div class="col-lg-11 col-md-3 col-sm-6">  
-            <h6 class="fr second-heading d-pointer" id="vs-profile" [routerLink]="['/seller',ProductDetail.createdBy]">View Seller Profile</h6>
-        </div>
-        </div>
-      
     </div>
-</div>
-<div class="col-lg-8 mt-3">
-    <div class="card">
-        <div class="container">
-            <div class="row">
-                <h6 class="products-heading description-title ">Description</h6>
+    <div class="row">
+        <div class="col-lg-8 mt-3">
+            <div class="card">
                 <div class="container">
                     <div class="row">
-                        <div class="row g-0">
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card-body">
-                                <p>Fabric:PU Leather</p>
-                                <p>Size:(8x6 In)</p>
-                                <p>Make up Pouch with Plastic Chain</p>
-                                <p class="card-text">Elegant Design</p>
-                                <p class="card-text">Best for all occasions Casual , Parties and daily life</p>
-                                <br />
-                                <p class="card-text"> Note: Product Color May Slightly Due to Photographic
-                                    Lighting Source or your Monitor Setting</p><br />
-                                <p>Please Allow 3-4 Cm Size Difference</p>
+                        <h6 class="products-heading description-title ">Description</h6>
+                        <div class="panel-body description" [innerHtml]="ProductDetail.description"></div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="row g-0">
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="card mt-3">
-    <h6 class="products-heading">Related Products</h6>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-4 col-sm-12" *ngFor="let ProductItem of ProductItems ">
-                <div class="product-card mt-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src={{ProductItem.imageLink}} class="card-img-top" height="230" width="288" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ProductItem.name}}</h5>
-                            <p class="price">Rs: {{ProductItem.price}}</p>
-                            <i class="fa fa-heart wishlist-icon"></i>
-                            <i class="fa fa-eye eye-icon"></i>
+        <div class="col-lg-4">
+            <div class="card posted-card">
+                <div class="container">
+                    <div class="row">
+                        <h6 class="products-heading Posted-title">Posted In</h6>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="second-heading seller-title"><i class="fa fa-globe" aria-hidden="true"></i>
+                                    {{ProductDetail.sellerAddress }}</p><br>
+                                <p class="product-date" style="float: right;">{{ProductDetail.addedAgo}} </p>
+                            </div>
                         </div>
+                        <img class="add-image " height="347" width="550" title="" src="assets/Images/adds.png">
                     </div>
                 </div>
             </div>
-        </div><br>
+        </div>
     </div>
-</div><br><br>
+    <div class="card mt-3">
+        <h6 class="products-heading">Related Products</h6>
+        <div class="container">
+            <div #target class="row scrolls">
+                <div class="d-flex justify-content-center scroll"> <button class="mx-3 scrollBtn"
+                        (click)="scrollWin(target)"><i class="fa fa-chevron-left"
+                            aria-hidden="true"></i></button><button class="scrollBtn"
+                        (click)="scrollWin2(target)"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-12" *ngFor="let ProductItem of ProductItems ">
+                    <div class="product-card mt-3">
+                        <div class="card" style="width: 18.2rem;">
+                            <img src={{ProductItem.imageLink}} class="card-img-top" height="230" width="288"
+                                [routerLink]="['/product-details',ProductItem.productId]" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ProductItem.name}}</h5>
+                                <p class="price">Rs: {{ProductItem.price}}</p>
+                                <i class="fa fa-heart wishlist-icon"  ></i>
+                                <i class="fa fa-eye eye-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+            </div>
+        </div>
+    </div><br><br>
 </div>
