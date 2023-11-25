@@ -26,6 +26,7 @@ export class AddProductComponent  implements OnInit{
   subCategories: subCategory[]=[];
   categoryId:any = "";
   UserId: any = "";
+  imagesToAppend: any[]=[]
   addProductLoading: boolean = false;
   categoryName: string = "";
   IsCurrentUser: boolean = false;
@@ -161,7 +162,9 @@ export class AddProductComponent  implements OnInit{
       });
     }
     onSubmitAddProduct() {
-      debugger
+      for (let a = 0; a < this.addProductImages.length; a++){
+        this.ProductFormData.append('ProductImages', this.imagesToAppend[a], this.imagesToAppend[a].name);
+      }
       for (let a = 0; a < this.provinces.length; a++){
         if(this.addProductForm.get('ProvinceName')?.value == this.provinces[a].provinceId){
           
