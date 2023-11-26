@@ -49,14 +49,13 @@ export class ProductService {
         })
       );
   }
-  addProduct(data: any) {
-    debugger;
-    return this.repositoryService.postWithFile('Product/add', data).pipe(
-      map((response: any) => {
-        return response;
-      })
-    );
-  }
+  addProduct(data : any) {
+    return this.repositoryService.postWithFile('Product/add', data, ).pipe(
+         map((response: any) => {
+           return response;
+         })
+       );
+}
   //update-product-status
   //Product/update-product-status/{productId}
   updateProductStatus(productId: any, productStatusId: any) {
